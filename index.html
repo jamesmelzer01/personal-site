@@ -1,46 +1,84 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class="js">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <link href="https://fonts.googleapis.com/css?family=Flamenco|Raleway:400,700" rel="stylesheet">
-  <title>James Melzer, User Experience Designer</title>
-	  <style>
-		  body {
-		    font-size: 16px;
-		    font-family: "Raleway", helvetica, 'Helvetica Neue', HelveticaNeue, Arial, 'Lucida Grande', sans-serif;
-		    line-height: 1.25;
-		    color: #25282b;
-		    background-color: #e5e5e5;
-		    -webkit-text-size-adjust: 100%; 
-		}
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, minimum-scale=1.0" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nixie+One&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+	<title>James Melzer, User Experience Designer</title>
+	<style>
+  		body {
+  			font-size: 20px;
+  			font-family: "Quicksand", helvetica, 'Helvetica Neue', HelveticaNeue, Arial, 'Lucida Grande', sans-serif;
+  			line-height: 1.25;
+  			color: #e5e5e5;
+  			background-color: #25282b;
+  			-webkit-text-size-adjust: 100%; 
+			
+		    text-align: center;
+		    display: flex;
+		    flex-flow: column;
+		    min-height: 100%;
+		    justify-content: space-between;
+		    flex-direction: column;
+		    align-content: center;
+		    align-items: center;
+  		}
 
-		  * {
-		    box-sizing: border-box; 
-		}
+  		* {
+  		    box-sizing: border-box; 
+  		}
 
-			h2, h3, h4 {
-			  font-family: 'Flamenco', serif;
-			  font-weight: 400;
-			  margin: 0 0 8px 0;
-			  padding: 0; 
-		  	}
-			h2 a, h3 a, h4 a {
-			    font-weight: inherit; 
+  			h1, h2, h3 {
+  				font-family: "Nixie One", serif;
+  				font-weight: 400;
+  				line-height: 1.1;
+  				margin: 0 0 8px 0;
+  				padding: 0; 
+  		  	}
+  			h2 a, h3 a, h4 a {
+  			    font-weight: inherit; 
+  			}
+			
+  			h1 {
+  				font-size: 4rem;
+			}
+			h2 {
+				font-size: 2rem;
 			}
 			
-			h1 span {
-				display:block;
+			.meat {
+				padding: 60px 0;
+				opacity: 50%;
 			}
-
-	  </style>
+			
+			#bearings-ux-logo {
+				opacity:80%;
+			
+				&:hover {
+					opacity:100%;
+				}
+			}
+	</style>
 </head>
-<body style="text-align: center;">
-	<img src="img/JmLogoBlock.png" alt="JM Signature">
+<body>
+	<div class="leading">
+		<img src="img/JMLogoDisk.svg" alt="JM Signature" style="max-width:400px;width:100%;padding:20px 20px;" />
 	
-    <div class="seo_monkey"><h1><span>James Melzer</span> <span>User Experience Designer and Information Architect</span></h1></div>
-	 
-	<p>I'm switching hosts! New site coming soon...</p>
+    	<h1>James Melzer</h1> 
 	
-	<p>This is my personal site. For my consultancy, please head to <a href="https://bearings-ux.com">Bearings UX</a></p>
+		<h2>User Experience Designer and Information Architect</h2>
+	</div>
+	
+	<div class="meat">
+		<p>I'm switching hosts! New site coming soon...</p>
+	</div>
+	
+	<div class="trailing">
+		<p>This is my personal site. For my consultancy, please head to:<br />
+	
+		<a href="https://bearings-ux.com"><img src="img/bearings-ux-logo-2024.svg" alt="Bearings UX" id="bearings-ux-logo" style="max-width:400px;width:100%;padding:20px 20px;" /></a></p>
+	</div>
 </body>
 </html>
