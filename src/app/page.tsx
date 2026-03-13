@@ -4,7 +4,7 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
     <div className={styles.page}>
-      <div className="leading">
+      <div className={styles.leading}>
         <Image
           src="/img/JMLogoDisk.svg"
           alt="JM Signature"
@@ -20,7 +20,7 @@ export default function Home() {
         <p>New site coming soon.</p>
       </div>
 
-      <div className="trailing">
+      <div className={styles.trailing}>
         <p>
           This is my personal site. For my consultancy, please head to:
         </p>
