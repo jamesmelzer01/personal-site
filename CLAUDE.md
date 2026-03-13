@@ -53,6 +53,14 @@ Figma Variables (source of truth)
 
 SVG assets live in `public/img/`.
 
+## Working with James
+
+James is a design systems expert and experienced Figma practitioner, but not a developer. He has strong instincts about scalable design patterns but limited exposure to enterprise development conventions.
+
+**When you spot an opportunity to apply a recognized enterprise development pattern or best practice, call it out explicitly.** Name the pattern, explain briefly why it exists and where it's commonly used, then ask whether to apply it. Don't just implement it silently, and don't skip it just because it adds complexity. The goal is for James to build a mental map of how good codebases are structured, even when a pattern isn't strictly necessary at personal-site scale.
+
+Examples of things worth flagging: naming conventions, file organization patterns, CI/CD practices, testing strategies, security patterns, dependency management approaches, Git workflows, documentation standards.
+
 ## Docs
 
 Architecture decisions: `docs/decisions/` (ADR format — context, options, decision, consequences).
