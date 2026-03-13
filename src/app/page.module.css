@@ -26,6 +26,7 @@
 .meat {
   padding: 60px 0;
   opacity: 0.5;
+  color: var(--primitives-color-brand-primary);
 }
 
 .bearingsLogo {

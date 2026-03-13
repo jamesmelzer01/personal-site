@@ -1,0 +1,12 @@
+{
+  "primitives": {
+    "color": {
+      "brand": {
+        "primary": {
+          "$value": "#CC004B",
+          "$type": "color"
+        }
+      }
+    }
+  }
+}
