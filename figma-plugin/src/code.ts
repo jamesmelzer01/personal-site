@@ -1,12 +1,12 @@
 /**
  * Token Exporter — Figma Plugin
  *
- * Reads all local variables from the current Figma file, transforms them
- * into Style Dictionary DTCG format, and displays the JSON for copying
- * into tokens/figma.raw.json in the repo.
+ * Reads all local variables and text styles from the current Figma file,
+ * transforms them into Style Dictionary DTCG format, and displays the
+ * JSON for copying into tokens/figma.raw.json in the repo.
  *
- * Variable names use slash notation (e.g. primitives/color/brand/primary)
- * which becomes a nested JSON hierarchy matching the pipeline's expectations.
+ * Variable aliases (e.g. semantic tokens referencing primitives) are
+ * output as DTCG reference syntax: {primitives.color.neutral.900}
  */
 
 // ---------------------------------------------------------------------------
@@ -35,36 +35,88 @@ function setNestedValue(
   node[parts[parts.length - 1]] = value;
 }
 
+/**
+ * Maps Figma font style strings to numeric CSS font-weight values.
+ * Handles composite style names like "Bold Italic" by substring match.
+ */
+const FONT_WEIGHT_MAP: Record<string, number> = {
+  "Thin": 100,
+  "ExtraLight": 200, "Extra Light": 200,
+  "Light": 300,
+  "Regular": 400, "Normal": 400,
+  "Medium": 500,
+  "SemiBold": 600, "Semi Bold": 600,
+  "Bold": 700,
+  "ExtraBold": 800, "Extra Bold": 800,
+  "Black": 900, "Heavy": 900,
+};
+
+function fontStyleToWeight(style: string): number {
+  for (const [key, value] of Object.entries(FONT_WEIGHT_MAP)) {
+    if (style.includes(key)) return value;
+  }
+  return 400;
+}
+
+/** Converts a Figma LineHeight to a CSS-ready value. */
+function lineHeightToCss(lh: LineHeight): string | number {
+  if (lh.unit === "AUTO") return "normal";
+  if (lh.unit === "PIXELS") return `${lh.value}px`;
+  return lh.value / 100; // PERCENT → unitless ratio (e.g. 150% → 1.5)
+}
+
+/** Converts a Figma LetterSpacing to a CSS-ready value. */
+function letterSpacingToCss(ls: LetterSpacing): string {
+  if (ls.unit === "PIXELS") return ls.value === 0 ? "0" : `${ls.value}px`;
+  return ls.value === 0 ? "0" : `${ls.value / 100}em`; // PERCENT → em
+}
+
 // ---------------------------------------------------------------------------
-// Variable collection
+// Variable tokens
 // ---------------------------------------------------------------------------
 
-function buildTokens(): Record<string, unknown> {
+function buildVariableTokens(): Record<string, unknown> {
   const variables = figma.variables.getLocalVariables();
   const collections = figma.variables.getLocalVariableCollections();
   const collectionMap = new Map(collections.map((c) => [c.id, c]));
+  const variableMap = new Map(variables.map((v) => [v.id, v]));
 
   const tokens: Record<string, unknown> = {};
-  let skipped = 0;
 
   for (const variable of variables) {
     const collection = collectionMap.get(variable.variableCollectionId);
     if (!collection) continue;
 
     const rawValue = variable.valuesByMode[collection.defaultModeId];
+    const tokenPath = `${collection.name.toLowerCase()}/${variable.name}`;
 
-    // Skip alias references (variable pointing to another variable).
-    // Alias resolution is a future enhancement — see docs/backlog.md.
+    // Alias reference: translate to DTCG {collection.path.to.token} syntax
     if (
       typeof rawValue === "object" &&
       rawValue !== null &&
       "type" in rawValue &&
       (rawValue as VariableAlias).type === "VARIABLE_ALIAS"
     ) {
-      skipped++;
+      const alias = rawValue as VariableAlias;
+      const referencedVar = variableMap.get(alias.id);
+      if (!referencedVar) continue;
+
+      const referencedCollection = collectionMap.get(
+        referencedVar.variableCollectionId
+      );
+      if (!referencedCollection) continue;
+
+      const refPath = `${referencedCollection.name.toLowerCase()}/${referencedVar.name}`;
+      const $value = `{${refPath.replace(/\//g, ".")}}`;
+      const $type =
+        referencedVar.resolvedType === "COLOR" ? "color" :
+        referencedVar.resolvedType === "FLOAT" ? "number" : "string";
+
+      setNestedValue(tokens, tokenPath, { $value, $type });
       continue;
     }
 
+    // Direct value
     let $value: unknown;
     let $type: string;
 
@@ -86,12 +138,40 @@ function buildTokens(): Record<string, unknown> {
         $type = "boolean";
         break;
       default:
-        skipped++;
         continue;
     }
 
-    const tokenPath = `${collection.name.toLowerCase()}/${variable.name}`;
     setNestedValue(tokens, tokenPath, { $value, $type });
+  }
+
+  return tokens;
+}
+
+// ---------------------------------------------------------------------------
+// Typography tokens (from Figma Text Styles)
+// ---------------------------------------------------------------------------
+
+function buildTypographyTokens(): Record<string, unknown> {
+  const textStyles = figma.getLocalTextStyles();
+  const tokens: Record<string, unknown> = {};
+
+  for (const style of textStyles) {
+    // Sanitize: lowercase, spaces → hyphens, preserve slashes as path separators
+    const sanitizedName = style.name
+      .toLowerCase()
+      .replace(/\s+/g, "-");
+
+    const tokenPath = `typography/${sanitizedName}`;
+
+    const $value = {
+      fontFamily: style.fontName.family,
+      fontWeight: fontStyleToWeight(style.fontName.style),
+      fontSize: `${style.fontSize}px`,
+      lineHeight: lineHeightToCss(style.lineHeight),
+      letterSpacing: letterSpacingToCss(style.letterSpacing),
+    };
+
+    setNestedValue(tokens, tokenPath, { $value, $type: "typography" });
   }
 
   return tokens;
@@ -191,7 +271,6 @@ const UI_HTML = `
     const copyBtn = document.getElementById('copy');
     const status = document.getElementById('status');
 
-    // Receive tokens from the plugin main thread
     window.onmessage = function(event) {
       const msg = event.data.pluginMessage;
       if (msg && msg.type === 'TOKENS') {
@@ -216,5 +295,12 @@ const UI_HTML = `
 
 figma.showUI(UI_HTML, { width: 480, height: 500, title: "Token Exporter" });
 
-const tokens = buildTokens();
-figma.ui.postMessage({ type: "TOKENS", payload: JSON.stringify(tokens, null, 2) });
+const tokens = {
+  ...buildVariableTokens(),
+  ...buildTypographyTokens(),
+};
+
+figma.ui.postMessage({
+  type: "TOKENS",
+  payload: JSON.stringify(tokens, null, 2),
+});
