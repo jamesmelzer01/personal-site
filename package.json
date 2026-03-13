@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "fetch-tokens": "node scripts/fetch-tokens.mjs",
+    "build-tokens": "node style-dictionary.config.mjs",
+    "sync-tokens": "npm run fetch-tokens && npm run build-tokens"
   },
   "dependencies": {
     "next": "16.1.6",
@@ -17,8 +20,10 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv": "^17.3.1",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
+    "style-dictionary": "^5.3.3",
     "typescript": "^5"
   }
 }
