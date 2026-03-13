@@ -200,10 +200,10 @@ const UI_HTML = `
     };
 
     copyBtn.onclick = function() {
-      navigator.clipboard.writeText(output.value).then(function() {
-        status.classList.add('visible');
-        setTimeout(function() { status.classList.remove('visible'); }, 2000);
-      });
+      output.select();
+      document.execCommand('copy');
+      status.classList.add('visible');
+      setTimeout(function() { status.classList.remove('visible'); }, 2000);
     };
   </script>
 </body>
