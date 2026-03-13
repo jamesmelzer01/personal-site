@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./page.module.css";
 
 type Theme = "light" | "dark";
@@ -21,6 +21,25 @@ const TYPE_STACK = [
 export default function TokensPage() {
   const [theme, setTheme] = useState<Theme>("light");
   const [density, setDensity] = useState<Density>("default");
+
+  // On mount: restore from localStorage, fall back to prefers-color-scheme.
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") as Theme | null;
+    if (savedTheme === "light" || savedTheme === "dark") {
+      setTheme(savedTheme);
+    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      setTheme("dark");
+    }
+
+    const savedDensity = localStorage.getItem("density") as Density | null;
+    if (savedDensity === "compact" || savedDensity === "default" || savedDensity === "spacious") {
+      setDensity(savedDensity);
+    }
+  }, []);
+
+  // Persist changes.
+  useEffect(() => { localStorage.setItem("theme", theme); }, [theme]);
+  useEffect(() => { localStorage.setItem("density", density); }, [density]);
 
   return (
     <div
