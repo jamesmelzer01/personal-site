@@ -90,7 +90,8 @@ function buildTokens(): Record<string, unknown> {
         continue;
     }
 
-    setNestedValue(tokens, variable.name, { $value, $type });
+    const tokenPath = `${collection.name.toLowerCase()}/${variable.name}`;
+    setNestedValue(tokens, tokenPath, { $value, $type });
   }
 
   return tokens;
