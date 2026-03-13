@@ -1,0 +1,7 @@
+{
+  "name": "Token Exporter",
+  "id": "token-exporter-jamesmelzer",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "editorType": ["figma"]
+}
