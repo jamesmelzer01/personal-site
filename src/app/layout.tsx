@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Nixie_One, Quicksand } from "next/font/google";
 import "./globals.css";
 import "../styles/tokens.css";
+import "../styles/tokens.typography.css";
 
 const nixieOne = Nixie_One({
   weight: "400",

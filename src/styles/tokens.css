@@ -97,13 +97,4 @@
   --component-button-surface-h-padding: 8px;
   --component-button-surface-gap: 4px;
   --component-button-text-font-size: 12px;
-  --typography-heading-1: 400 40px/normal 'Nixie One';
-  --typography-heading-2: 400 30px/normal 'Nixie One';
-  --typography-heading-3: 400 22px/normal 'Nixie One';
-  --typography-body-large: 400 18px/normal Quicksand;
-  --typography-body: 400 14px/normal Quicksand;
-  --typography-body-small: 400 12px/normal Quicksand;
-  --typography-ui-large: 600 18px/normal Quicksand;
-  --typography-ui: 600 14px/normal Quicksand;
-  --typography-ui-small: 600 12px/normal Quicksand;
 }
