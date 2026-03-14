@@ -1,0 +1,49 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --grid-edge: 8px;
+  --grid-gutter: 8px;
+  --grid-columns: 3;
+  --grid-max-width: 480px;
+  --grid-narrow-max-width: 480px;
+  --layout-helpers-padding-m: 12px;
+  --layout-helpers-v-margin-m: 16px;
+  --layout-helpers-padding-l: 16px;
+  --layout-helpers-v-margin-l: 24px;
+  --layout-helpers-v-margin-xl: 40px;
+  --layout-helpers-padding-s: 8px;
+}
+
+@media (min-width: 800px) {
+  :root {
+    --grid-edge: 16px;
+    --grid-gutter: 16px;
+    --grid-columns: 6;
+    --grid-max-width: 960px;
+    --grid-narrow-max-width: 840px;
+    --layout-helpers-padding-m: 12px;
+    --layout-helpers-v-margin-m: 16px;
+    --layout-helpers-padding-l: 16px;
+    --layout-helpers-v-margin-l: 24px;
+    --layout-helpers-v-margin-xl: 40px;
+    --layout-helpers-padding-s: 8px;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --grid-edge: 80px;
+    --grid-gutter: 40px;
+    --grid-columns: 12;
+    --grid-max-width: 1440px;
+    --grid-narrow-max-width: 840px;
+    --layout-helpers-padding-m: 16px;
+    --layout-helpers-v-margin-m: 24px;
+    --layout-helpers-padding-l: 24px;
+    --layout-helpers-v-margin-l: 40px;
+    --layout-helpers-v-margin-xl: 80px;
+    --layout-helpers-padding-s: 8px;
+  }
+}

@@ -1,10 +1,13 @@
 /**
  * Style Dictionary configuration.
  * Reads tokens/figma.raw.json and outputs:
- *   src/styles/tokens.css            — primitive tokens as CSS custom properties on :root
- *   src/styles/tokens.semantic.css   — [data-theme="light"] and [data-theme="dark"] blocks
- *   src/styles/tokens.component.css  — [data-density="compact/default/spacious"] blocks
- *   src/styles/tokens.typography.css — typography composite tokens as .type-* utility classes
+ *   src/styles/tokens.css              — primitive tokens as CSS custom properties on :root
+ *   src/styles/tokens.semantic.css     — [data-theme="light"] and [data-theme="dark"] blocks
+ *   src/styles/tokens.component.css    — [data-density="compact/default/spacious"] blocks
+ *   src/styles/tokens.breakpoints.css  — mobile-first @media query blocks for grid/layout tokens
+ *   src/styles/tokens.typography.css   — typography composite tokens as .type-* utility classes
+ *
+ * Tokens with any path segment prefixed with "_" are Figma-only and skipped in all outputs.
  *
  * Run via: npm run build-tokens
  */
@@ -57,6 +60,82 @@ StyleDictionary.registerFormat({
         lines.push(`  ${varName}: ${token.$value};`);
       }
       lines.push('}');
+      lines.push('');
+    }
+
+    return lines.join('\n');
+  },
+});
+
+// ---------------------------------------------------------------------------
+// Custom format: breakpoint-scoped CSS variables
+//
+// Groups tokens by breakpoint collection (breakpoints-mobile, -tablet,
+// -desktop), reads the "min-width" token to construct the @media condition,
+// then outputs all other non-skipped tokens as CSS custom properties with the
+// collection prefix stripped: "breakpoints-desktop/grid/edge" → "--grid-edge".
+//
+// Mobile (min-width: 0) is output as :root defaults with no @media wrapper,
+// following the mobile-first convention.
+//
+// Tokens are skipped when any path segment after path[0] starts with "_"
+// (Figma-only tokens) or equals "min-width" (used for the query, not a var).
+// ---------------------------------------------------------------------------
+
+StyleDictionary.registerFormat({
+  name: 'css/media-query-variables',
+  format: ({ dictionary }) => {
+    // Group tokens by first path segment and sort by min-width ascending.
+    const groups = new Map();
+    for (const token of dictionary.allTokens) {
+      const key = token.path[0];
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(token);
+    }
+
+    // Resolve min-width for each group so we can sort mobile-first.
+    const sorted = [...groups.entries()].sort((a, b) => {
+      const minWidth = (tokens) =>
+        parseInt(tokens.find((t) => t.path[1] === 'min-width')?.$value ?? '0', 10);
+      return minWidth(a[1]) - minWidth(b[1]);
+    });
+
+    const SKIP = (token) =>
+      token.path.slice(1).some((seg) => seg.startsWith('_')) ||
+      token.path[1] === 'min-width';
+
+    const lines = [
+      '/**',
+      ' * Do not edit directly, this file was auto-generated.',
+      ' */',
+      '',
+    ];
+
+    for (const [key, tokens] of sorted) {
+      const minWidthToken = tokens.find((t) => t.path[1] === 'min-width');
+      const minWidthValue = minWidthToken?.$value ?? '0px';
+      const isMobileDefault = parseInt(minWidthValue, 10) === 0;
+
+      const outputTokens = tokens.filter((t) => !SKIP(t));
+      if (outputTokens.length === 0) continue;
+
+      // Variable names strip path[0] (the breakpoint collection name).
+      // "breakpoints-desktop/grid/edge" → "--grid-edge"
+      const vars = outputTokens.map(
+        (t) => `  --${t.path.slice(1).join('-')}: ${t.$value};`
+      );
+
+      if (isMobileDefault) {
+        lines.push(':root {');
+        lines.push(...vars);
+        lines.push('}');
+      } else {
+        lines.push(`@media (min-width: ${minWidthValue}) {`);
+        lines.push('  :root {');
+        lines.push(...vars.map((v) => `  ${v}`));
+        lines.push('  }');
+        lines.push('}');
+      }
       lines.push('');
     }
 
@@ -144,6 +223,12 @@ const sd = new StyleDictionary({
           format: 'css/themed-variables',
           filter: (token) => token.path[0].startsWith('component-'),
           options: { attribute: 'data-density' },
+        },
+        {
+          // Breakpoint tokens → mobile-first @media query blocks
+          destination: 'tokens.breakpoints.css',
+          format: 'css/media-query-variables',
+          filter: (token) => token.path[0].startsWith('breakpoints-'),
         },
         {
           // Typography composite tokens → .type-* utility classes

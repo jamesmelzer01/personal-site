@@ -4,6 +4,7 @@ import "./globals.css";
 import "../styles/tokens.css";
 import "../styles/tokens.semantic.css";
 import "../styles/tokens.component.css";
+import "../styles/tokens.breakpoints.css";
 import "../styles/tokens.typography.css";
 
 const nixieOne = Nixie_One({
