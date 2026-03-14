@@ -85,6 +85,11 @@
   gap: 16px;
 }
 
+.cardOutlined {
+  border: 1px solid var(--semantic-color-border-secondary);
+  border-radius: var(--primitives-border-radius-large);
+}
+
 .cardCentered {
   align-items: center;
 }
