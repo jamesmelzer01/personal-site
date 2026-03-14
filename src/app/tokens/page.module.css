@@ -70,21 +70,23 @@
   margin-bottom: var(--layout-helpers-v-margin-l);
 }
 
-/* Constrain showcase content to a readable/realistic width */
+/* Sections fill the full container width */
 .sectionContent {
-  max-width: var(--grid-narrow-max-width);
+  width: 100%;
 }
 
 /* Cards ------------------------------------------------------------------- */
 
 .card {
   background-color: var(--semantic-color-surface-low);
-  border: 1px solid var(--semantic-color-border-secondary);
-  border-radius: var(--primitives-border-radius-large);
   padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.cardCentered {
+  align-items: center;
 }
 
 .cardTitle {

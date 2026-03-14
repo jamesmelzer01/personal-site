@@ -102,7 +102,7 @@ export default function TokensPage() {
         <section className={styles.section}>
           <p className={`type-ui-small ${styles.sectionLabel}`}>Tabs</p>
           <div className={styles.sectionContent}>
-            <div className={styles.card}>
+            <div className={`${styles.card} ${styles.cardCentered}`}>
               <Tabs defaultValue="one">
                 <Tab value="one">One</Tab>
                 <Tab value="two">Two</Tab>
