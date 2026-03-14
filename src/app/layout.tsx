@@ -6,6 +6,7 @@ import "../styles/tokens.semantic.css";
 import "../styles/tokens.component.css";
 import "../styles/tokens.breakpoints.css";
 import "../styles/tokens.typography.css";
+import "../styles/motion.css";
 
 const overpass = Overpass({
   weight: ["400", "600"],

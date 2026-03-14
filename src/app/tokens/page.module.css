@@ -65,8 +65,8 @@
   border-bottom: 1px solid var(--semantic-color-border-secondary);
 }
 
-.sectionLabel {
-  color: var(--semantic-color-text-disabled);
+.sectionHeading {
+  color: var(--semantic-color-text-primary);
   margin-bottom: var(--layout-helpers-v-margin-l);
 }
 

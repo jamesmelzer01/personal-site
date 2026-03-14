@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "@/components/Button";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import { Tab, Tabs } from "@/components/Tabs";
 import styles from "./page.module.css";
 
@@ -70,46 +71,58 @@ export default function TokensPage() {
 
         {/* Typography */}
         <section className={styles.section}>
-          <p className={`type-ui-small ${styles.sectionLabel}`}>Typography</p>
-          <div className={styles.sectionContent}>
-            <div className={styles.card}>
-              {TYPE_STACK.map(({ cls, label, sample }) => (
-                <div key={cls} className={styles.typeRow}>
-                  <span className={`type-ui-small ${styles.typeLabel}`}>{label}</span>
-                  <span className={`${cls} ${styles.typeSample}`}>{sample}</span>
-                </div>
-              ))}
+          <ScrollReveal>
+            <h2 className={`type-heading-2 ${styles.sectionHeading}`}>Typography</h2>
+          </ScrollReveal>
+          <ScrollReveal delay={120}>
+            <div className={styles.sectionContent}>
+              <div className={styles.card}>
+                {TYPE_STACK.map(({ cls, label, sample }) => (
+                  <div key={cls} className={styles.typeRow}>
+                    <span className={`type-ui-small ${styles.typeLabel}`}>{label}</span>
+                    <span className={`${cls} ${styles.typeSample}`}>{sample}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
         </section>
 
         {/* Buttons */}
         <section className={styles.section}>
-          <p className={`type-ui-small ${styles.sectionLabel}`}>Button</p>
-          <div className={styles.sectionContent}>
-            <div className={styles.card}>
-              <div className={styles.buttonRow}>
-                <Button hierarchy="primary">Primary</Button>
-                <Button hierarchy="alt">Alt</Button>
-                <Button hierarchy="secondary">Secondary</Button>
-                <Button hierarchy="ghost">Ghost</Button>
+          <ScrollReveal>
+            <h2 className={`type-heading-2 ${styles.sectionHeading}`}>Button</h2>
+          </ScrollReveal>
+          <ScrollReveal delay={120}>
+            <div className={styles.sectionContent}>
+              <div className={styles.card}>
+                <div className={styles.buttonRow}>
+                  <Button hierarchy="primary">Primary</Button>
+                  <Button hierarchy="alt">Alt</Button>
+                  <Button hierarchy="secondary">Secondary</Button>
+                  <Button hierarchy="ghost">Ghost</Button>
+                </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </section>
 
         {/* Tabs */}
         <section className={styles.section}>
-          <p className={`type-ui-small ${styles.sectionLabel}`}>Tabs</p>
-          <div className={styles.sectionContent}>
-            <div className={`${styles.card} ${styles.cardCentered}`}>
-              <Tabs defaultValue="one">
-                <Tab value="one">One</Tab>
-                <Tab value="two">Two</Tab>
-                <Tab value="three">Three</Tab>
-              </Tabs>
+          <ScrollReveal>
+            <h2 className={`type-heading-2 ${styles.sectionHeading}`}>Tabs</h2>
+          </ScrollReveal>
+          <ScrollReveal delay={120}>
+            <div className={styles.sectionContent}>
+              <div className={`${styles.card} ${styles.cardCentered}`}>
+                <Tabs defaultValue="one">
+                  <Tab value="one">One</Tab>
+                  <Tab value="two">Two</Tab>
+                  <Tab value="three">Three</Tab>
+                </Tabs>
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
         </section>
 
       </div>
