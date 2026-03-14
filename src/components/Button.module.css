@@ -1,0 +1,59 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--component-button-surface-gap);
+  padding: var(--component-button-surface-v-padding) var(--component-button-surface-h-padding);
+  border-radius: var(--component-button-border-radius);
+  border: var(--component-button-border-width) solid transparent;
+  font-family: inherit;
+  font-size: var(--component-button-text-font-size);
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* primary — solid interaction fill */
+.primary {
+  background: var(--semantic-color-interaction-default);
+  border-color: var(--semantic-color-interaction-default);
+  color: var(--semantic-color-text-reverse);
+}
+.primary:hover {
+  background: var(--semantic-color-interaction-hover);
+  border-color: var(--semantic-color-interaction-hover);
+}
+
+/* alt — solid dark slate fill */
+.alt {
+  background: var(--semantic-color-interaction-alt);
+  border-color: var(--semantic-color-interaction-alt);
+  color: var(--semantic-color-text-reverse);
+}
+.alt:hover {
+  background: var(--semantic-color-interaction-alt-hover);
+  border-color: var(--semantic-color-interaction-alt-hover);
+}
+
+/* secondary — outlined, no fill */
+.secondary {
+  background: transparent;
+  border-color: var(--semantic-color-interaction-default);
+  color: var(--semantic-color-interaction-default);
+}
+.secondary:hover {
+  border-color: var(--semantic-color-interaction-hover);
+  color: var(--semantic-color-interaction-hover);
+}
+
+/* ghost — no fill, no border */
+.ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--semantic-color-interaction-default);
+}
+.ghost:hover {
+  background: var(--semantic-color-interaction-subtle-hover);
+}

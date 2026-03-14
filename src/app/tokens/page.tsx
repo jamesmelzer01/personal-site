@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Button } from "@/components/Button";
+import { Tab, Tabs } from "@/components/Tabs";
 import styles from "./page.module.css";
 
 type Theme = "light" | "dark";
@@ -91,9 +93,21 @@ export default function TokensPage() {
       <div className={styles.card}>
         <p className={`type-ui-small ${styles.cardTitle}`}>Button</p>
         <div className={styles.buttonRow}>
-          <button className={`${styles.btnPrimary} type-ui`}>Primary Action</button>
-          <button className={`${styles.btnSecondary} type-ui`}>Secondary Action</button>
+          <Button hierarchy="primary">Primary</Button>
+          <Button hierarchy="alt">Alt</Button>
+          <Button hierarchy="secondary">Secondary</Button>
+          <Button hierarchy="ghost">Ghost</Button>
         </div>
+      </div>
+
+      {/* Tabs */}
+      <div className={styles.card}>
+        <p className={`type-ui-small ${styles.cardTitle}`}>Tabs</p>
+        <Tabs defaultValue="one">
+          <Tab value="one">One</Tab>
+          <Tab value="two">Two</Tab>
+          <Tab value="three">Three</Tab>
+        </Tabs>
       </div>
     </div>
   );
