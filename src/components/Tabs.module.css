@@ -21,6 +21,7 @@
   color: var(--semantic-color-text-reverse);
   cursor: pointer;
   white-space: nowrap;
+  transition: background 250ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .tab.selected {
