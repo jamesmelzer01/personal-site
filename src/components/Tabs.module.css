@@ -30,8 +30,10 @@
 
 .tab.unselected {
   background: var(--semantic-color-interaction-subtle);
+  color: var(--semantic-color-text-primary);
 }
 
 .tab.unselected:hover {
   background: var(--semantic-color-interaction-subtle-hover);
+  color: var(--semantic-color-text-reverse);
 }

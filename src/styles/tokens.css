@@ -79,10 +79,13 @@
   --primitives-typography-line-height-body-small: 18;
   --primitives-typography-line-height-body-large: 28;
   --primitives-typography-line-spacing-body: 16px;
+  --primitives-typography-typography-letter-spacing-body: 0;
+  --primitives-typography-typography-letter-spacing-heading: -1;
+  --primitives-typography-typography-letter-spacing-display: -2;
   --primitives-motion-duration-quick: 250ms;
   --primitives-motion-duration-normal: 400ms;
   --primitives-motion-duration-slow: 1000ms;
-  --primitives-motion-duration-easy: 560ms;
+  --primitives-motion-duration-deliberate: 560ms;
   --primitives-motion-distance-xsmall: 4px;
   --primitives-motion-distance-small: 8px;
   --primitives-motion-distance-medium: 16px;
@@ -90,4 +93,5 @@
   --primitives-motion-distance-xlarge: 40px;
   --primitives-motion-easing-spring: cubic-bezier(0.16, 1, 0.3, 1);
   --primitives-motion-easing-appear: ease-out;
+  --primitives-shadow-text-overlay-geometry: 0 1px 4px;
 }

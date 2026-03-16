@@ -1,31 +1,18 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Button } from "@/components/Button";
-import { ScrollReveal } from "@/components/ScrollReveal";
-import { Tab, Tabs } from "@/components/Tabs";
+import { TypeShowcase } from "@/components/TypeShowcase";
+import { ButtonShowcase } from "@/components/ButtonShowcase";
+import { TabsShowcase } from "@/components/TabsShowcase";
 import { TabbedSlideshow, SlideshowPanel } from "@/components/TabbedSlideshow";
 import { SideBySide } from "@/components/SideBySide";
+import { StackedImage } from "@/components/StackedImage";
+import { OffsetList } from "@/components/OffsetList";
 import { breakpoints } from "@/styles/tokens.breakpoints";
 import styles from "./page.module.css";
 
 type Theme = "light" | "dark";
 type Density = "compact" | "default" | "spacious";
-
-const TYPE_STACK = [
-  { cls: "type-display-l",  label: "display-l",  sample: "The quick brown fox" },
-  { cls: "type-display",    label: "display",    sample: "The quick brown fox" },
-  { cls: "type-heading-1",  label: "heading-1",  sample: "The quick brown fox" },
-  { cls: "type-heading-2",  label: "heading-2",  sample: "The quick brown fox" },
-  { cls: "type-heading-3",  label: "heading-3",  sample: "The quick brown fox" },
-  { cls: "type-body-large", label: "body-large", sample: "The quick brown fox jumps over the lazy dog." },
-  { cls: "type-body",       label: "body",       sample: "The quick brown fox jumps over the lazy dog." },
-  { cls: "type-body-small", label: "body-small", sample: "The quick brown fox jumps over the lazy dog." },
-  { cls: "type-eyebrow",    label: "eyebrow",    sample: "Section Label" },
-  { cls: "type-ui-large",   label: "ui-large",   sample: "Button Label" },
-  { cls: "type-ui",         label: "ui",         sample: "Button Label" },
-  { cls: "type-ui-small",   label: "ui-small",   sample: "Button Label" },
-];
 
 export default function TokensPage() {
   const [theme, setTheme] = useState<Theme>("light");
@@ -75,61 +62,9 @@ export default function TokensPage() {
       {/* Page content */}
       <div className={styles.pageContainer}>
 
-        {/* Typography */}
-        <section className={styles.section}>
-          <ScrollReveal>
-            <h2 className={`type-heading-2 ${styles.sectionHeading}`}>Typography</h2>
-          </ScrollReveal>
-          <ScrollReveal delay={120}>
-            <div className={styles.sectionContent}>
-              <div className={styles.card}>
-                {TYPE_STACK.map(({ cls, label, sample }) => (
-                  <div key={cls} className={styles.typeRow}>
-                    <span className={`type-ui-small ${styles.typeLabel}`}>{label}</span>
-                    <span className={`${cls} ${styles.typeSample}`}>{sample}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </ScrollReveal>
-        </section>
-
-        {/* Buttons */}
-        <section className={styles.section}>
-          <ScrollReveal>
-            <h2 className={`type-heading-2 ${styles.sectionHeading}`}>Button</h2>
-          </ScrollReveal>
-          <ScrollReveal delay={120}>
-            <div className={styles.sectionContent}>
-              <div className={styles.card}>
-                <div className={styles.buttonRow}>
-                  <Button hierarchy="primary">Primary</Button>
-                  <Button hierarchy="alt">Alt</Button>
-                  <Button hierarchy="secondary">Secondary</Button>
-                  <Button hierarchy="ghost">Ghost</Button>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
-        </section>
-
-        {/* Tabs */}
-        <section className={styles.section}>
-          <ScrollReveal>
-            <h2 className={`type-heading-2 ${styles.sectionHeading}`}>Tabs</h2>
-          </ScrollReveal>
-          <ScrollReveal delay={120}>
-            <div className={styles.sectionContent}>
-              <div className={`${styles.card} ${styles.cardCentered}`}>
-                <Tabs defaultValue="one">
-                  <Tab value="one">One</Tab>
-                  <Tab value="two">Two</Tab>
-                  <Tab value="three">Three</Tab>
-                </Tabs>
-              </div>
-            </div>
-          </ScrollReveal>
-        </section>
+        <TypeShowcase />
+        <ButtonShowcase />
+        <TabsShowcase />
 
         <TabbedSlideshow
           heading="Featured Work"
@@ -160,6 +95,53 @@ export default function TokensPage() {
               imageAlt="Final design work"
               heading="High-fidelity interaction design"
               body="Component-based layouts built on a token-driven design system, validated through usability testing before handoff."
+            />
+          </SlideshowPanel>
+        </TabbedSlideshow>
+
+        <OffsetList
+          heading="Clients"
+          items={[
+            "Amgen", "Autodesk", "Cisco", "Collibra", "Cvent", "Discovery", "Faire",
+            "International Monetary Fund", "JDRF", "JLL", "Kelly Services", "Key Bank",
+            "Lockheed Martin", "Macys", "Marriott", "NetApp", "Qurate (QVC/HSN)",
+            "Rally Health", "Riot Games", "Ritz Carlton", "Salesforce", "USAC",
+            "Wells Fargo", "World Bank",
+          ]}
+        />
+
+        <TabbedSlideshow
+          heading="Selected Photography"
+          densityByBreakpoint={[
+            { minWidth: breakpoints.mobile, density: "default" },
+            { minWidth: breakpoints.tablet, density: "spacious" },
+          ]}
+        >
+          <SlideshowPanel label="Sacred Valley">
+            <StackedImage
+              image="/img/sample-panorama.jpg"
+              imageAlt="Sacred Valley, Peru"
+              title="Sacred Valley"
+              heading="Sacred Valley, Peru"
+              body="Sweeping views across the Urubamba valley, framed by Andean peaks and the terraced hillsides of the Inca heartland."
+            />
+          </SlideshowPanel>
+          <SlideshowPanel label="Panorama Two">
+            <StackedImage
+              image="/img/sample-panorama-2.jpeg"
+              imageAlt="Panoramic landscape"
+              title="Panorama Two"
+              heading="Wide open spaces"
+              body="Horizon-spanning landscape captured at the edge of the golden hour, where the light flattens distance into layers of tone."
+            />
+          </SlideshowPanel>
+          <SlideshowPanel label="Panorama Three">
+            <StackedImage
+              image="/img/sample-panorama-3.jpeg"
+              imageAlt="Panoramic landscape"
+              title="Panorama Three"
+              heading="Depth and scale"
+              body="A study in natural geometry — converging lines and graduated atmosphere pushing the eye toward a vanishing point."
             />
           </SlideshowPanel>
         </TabbedSlideshow>

@@ -66,4 +66,5 @@ Examples of things worth flagging: naming conventions, file organization pattern
 ## Docs
 
 Architecture decisions: `docs/decisions/` (ADR format — context, options, decision, consequences).
+Procedural guides: `docs/guides/` (how-to and operational docs).
 Future/lower-priority features: `docs/backlog.md`.

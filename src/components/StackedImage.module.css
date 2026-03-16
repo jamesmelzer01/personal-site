@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.imageWrap {
+  position: relative;
+  border-radius: var(--primitives-border-radius-large);
+  overflow: hidden;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 5 / 2;
+  object-fit: cover;
+}
+
+.imageTitle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 16px var(--grid-edge);
+  font-family: 'Overpass', sans-serif;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--semantic-color-text-reverse);
+  text-shadow: var(--primitives-shadow-text-overlay-geometry) var(--semantic-color-shadow-text-overlay);
+}
+
+.caption {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.heading {
+  color: var(--semantic-color-text-primary);
+}
+
+.body {
+  color: var(--semantic-color-text-secondary);
+}

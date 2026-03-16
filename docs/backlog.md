@@ -12,9 +12,6 @@ Upgrade the plugin to commit `tokens/figma.raw.json` directly to the repo via th
 **Figma REST API sync (headless)**
 When an Enterprise Figma account is available, restore `scripts/fetch-tokens.mjs` into the pipeline. Eliminates the plugin step entirely — fully server-side, no Figma UI required. See ADR-004.
 
-**GitHub Actions automated sync**
-GitHub Actions workflow that runs `npm run sync-tokens` on schedule or manual trigger, commits changed token files, and triggers Vercel redeploy.
-
 ---
 
 ## Component System

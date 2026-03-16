@@ -19,6 +19,7 @@
   --component-tabs-surface-h-padding: 4px;
   --component-tabs-surface-v-padding: 4px;
   --component-tabs-border-radius: 999px;
+  --component-stacked-image-text-font-size: 24px;
 }
 
 [data-density="default"] {
@@ -38,6 +39,7 @@
   --component-tabs-surface-h-padding: 4px;
   --component-tabs-surface-v-padding: 4px;
   --component-tabs-border-radius: 999px;
+  --component-stacked-image-text-font-size: 36px;
 }
 
 [data-density="spacious"] {
@@ -57,4 +59,5 @@
   --component-tabs-surface-h-padding: 8px;
   --component-tabs-surface-v-padding: 8px;
   --component-tabs-border-radius: 999px;
+  --component-stacked-image-text-font-size: 48px;
 }

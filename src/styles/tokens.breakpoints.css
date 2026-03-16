@@ -14,6 +14,8 @@
   --layout-helpers-v-margin-l: 24px;
   --layout-helpers-v-margin-xl: 40px;
   --layout-helpers-padding-s: 8px;
+  --layout-helpers-padding-xl: 16px;
+  --layout-helpers-padding-xxl: 16px;
 }
 
 @media (min-width: 800px) {
@@ -29,6 +31,8 @@
     --layout-helpers-v-margin-l: 24px;
     --layout-helpers-v-margin-xl: 40px;
     --layout-helpers-padding-s: 8px;
+    --layout-helpers-padding-xl: 24px;
+    --layout-helpers-padding-xxl: 32px;
   }
 }
 
@@ -45,5 +49,7 @@
     --layout-helpers-v-margin-l: 40px;
     --layout-helpers-v-margin-xl: 80px;
     --layout-helpers-padding-s: 8px;
+    --layout-helpers-padding-xl: 40px;
+    --layout-helpers-padding-xxl: 80px;
   }
 }

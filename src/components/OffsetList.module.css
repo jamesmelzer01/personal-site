@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-helpers-v-margin-l);
+  padding: var(--layout-helpers-v-margin-xl) var(--grid-edge);
+  background-color: var(--semantic-color-surface-low);
+  width: 100%;
+}
+
+.headingCol {
+  /* grid column applied at tablet+ below */
+}
+
+.cardRowCol {
+  /* grid column applied at tablet+ below */
+}
+
+.heading {
+  color: var(--semantic-color-text-primary);
+}
+
+.cardRow {
+  display: flex;
+  gap: var(--layout-helpers-padding-s);
+}
+
+.column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-helpers-padding-s);
+}
+
+.item {
+  color: var(--semantic-color-text-primary);
+}
+
+/* Tablet and desktop: 3-col heading / 9-col card-row in a 12-column grid.
+ * --grid-gutter updates per breakpoint (16px → 40px) so column spacing
+ * adjusts automatically. */
+@media (min-width: 800px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--grid-gutter);
+  }
+
+  .headingCol {
+    grid-column: span 3;
+    align-self: start;
+  }
+
+  .cardRowCol {
+    grid-column: span 9;
+  }
+}

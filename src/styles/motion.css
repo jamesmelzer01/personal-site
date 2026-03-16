@@ -4,7 +4,7 @@
  *
  * Proto-token candidates (→ motion token mapping):
  *   duration-fade:       400ms  → motion.duration.normal
- *   duration-translate:  560ms  → motion.duration.easy
+ *   duration-translate:  560ms  → motion.duration.deliberate
  *   easing-fade:         ease-out  → motion.easing.appear
  *   easing-translate:    cubic-bezier(0.16, 1, 0.3, 1)  → motion.easing.spring
  *   distance:            32px  → motion.distance.large
@@ -21,7 +21,7 @@
   transform: translateY(var(--primitives-motion-distance-large));
   transition:
     opacity   var(--primitives-motion-duration-normal) var(--primitives-motion-easing-appear)  var(--reveal-delay, 0ms),
-    transform var(--primitives-motion-duration-easy)   var(--primitives-motion-easing-spring)  var(--reveal-delay, 0ms);
+    transform var(--primitives-motion-duration-deliberate)   var(--primitives-motion-easing-spring)  var(--reveal-delay, 0ms);
 }
 
 .scroll-reveal[data-revealed="true"] {

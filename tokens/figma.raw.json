@@ -346,6 +346,22 @@
           "$value": "16px",
           "$type": "dimension"
         }
+      },
+      "typography": {
+        "letter-spacing": {
+          "body": {
+            "$value": 0,
+            "$type": "number"
+          },
+          "heading": {
+            "$value": -1,
+            "$type": "number"
+          },
+          "display": {
+            "$value": -2,
+            "$type": "number"
+          }
+        }
       }
     },
     "motion": {
@@ -362,7 +378,7 @@
           "$value": 1000,
           "$type": "number"
         },
-        "easy": {
+        "deliberate": {
           "$value": 560,
           "$type": "number"
         }
@@ -398,6 +414,12 @@
           "$value": "ease-out",
           "$type": "string"
         }
+      }
+    },
+    "shadow": {
+      "text-overlay-geometry": {
+        "$value": "0 1px 4px",
+        "$type": "string"
       }
     }
   },
@@ -526,6 +548,12 @@
         },
         "subtle": {
           "$value": "{primitives.color.slate.13a}",
+          "$type": "color"
+        }
+      },
+      "shadow": {
+        "text-overlay": {
+          "$value": "{semantic-light.color.text.primary}",
           "$type": "color"
         }
       }
@@ -658,6 +686,12 @@
           "$value": "{primitives.color.slate.61a}",
           "$type": "color"
         }
+      },
+      "shadow": {
+        "text-overlay": {
+          "$value": "{semantic-dark.color.text.primary}",
+          "$type": "color"
+        }
       }
     }
   },
@@ -744,6 +778,14 @@
       "border": {
         "radius": {
           "$value": "{primitives.border-radius.infinite}",
+          "$type": "dimension"
+        }
+      }
+    },
+    "stacked-image": {
+      "text": {
+        "font-size": {
+          "$value": "{primitives.typography.size.heading.heading-3}",
           "$type": "dimension"
         }
       }
@@ -835,6 +877,14 @@
           "$type": "dimension"
         }
       }
+    },
+    "stacked-image": {
+      "text": {
+        "font-size": {
+          "$value": "{primitives.typography.size.heading.heading-2}",
+          "$type": "dimension"
+        }
+      }
     }
   },
   "component-spacious": {
@@ -923,6 +973,14 @@
           "$type": "dimension"
         }
       }
+    },
+    "stacked-image": {
+      "text": {
+        "font-size": {
+          "$value": "{primitives.typography.size.heading.heading-1}",
+          "$type": "dimension"
+        }
+      }
     }
   },
   "breakpoints-mobile": {
@@ -987,6 +1045,14 @@
       },
       "padding-s": {
         "$value": "8px",
+        "$type": "dimension"
+      },
+      "padding-xl": {
+        "$value": "16px",
+        "$type": "dimension"
+      },
+      "padding-xxl": {
+        "$value": "16px",
         "$type": "dimension"
       }
     },
@@ -1058,6 +1124,14 @@
       "padding-s": {
         "$value": "8px",
         "$type": "dimension"
+      },
+      "padding-xl": {
+        "$value": "24px",
+        "$type": "dimension"
+      },
+      "padding-xxl": {
+        "$value": "32px",
+        "$type": "dimension"
       }
     },
     "_design-at": {
@@ -1128,6 +1202,14 @@
       "padding-s": {
         "$value": "8px",
         "$type": "dimension"
+      },
+      "padding-xl": {
+        "$value": "40px",
+        "$type": "dimension"
+      },
+      "padding-xxl": {
+        "$value": "80px",
+        "$type": "dimension"
       }
     },
     "_design-at": {
@@ -1142,7 +1224,7 @@
         "fontWeight": 600,
         "fontSize": "48px",
         "lineHeight": "normal",
-        "letterSpacing": "0"
+        "letterSpacing": "-1px"
       },
       "$type": "typography"
     },
@@ -1152,7 +1234,7 @@
         "fontWeight": 600,
         "fontSize": "36px",
         "lineHeight": "normal",
-        "letterSpacing": "0"
+        "letterSpacing": "-1px"
       },
       "$type": "typography"
     },
@@ -1162,7 +1244,7 @@
         "fontWeight": 600,
         "fontSize": "24px",
         "lineHeight": "normal",
-        "letterSpacing": "0"
+        "letterSpacing": "-1px"
       },
       "$type": "typography"
     },
@@ -1232,7 +1314,7 @@
         "fontWeight": 600,
         "fontSize": "64px",
         "lineHeight": "normal",
-        "letterSpacing": "0"
+        "letterSpacing": "-2px"
       },
       "$type": "typography"
     },
@@ -1242,7 +1324,7 @@
         "fontWeight": 600,
         "fontSize": "80px",
         "lineHeight": "normal",
-        "letterSpacing": "0"
+        "letterSpacing": "-2px"
       },
       "$type": "typography"
     },
