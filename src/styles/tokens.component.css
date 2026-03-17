@@ -20,6 +20,9 @@
   --component-tabs-surface-v-padding: 4px;
   --component-tabs-border-radius: 999px;
   --component-stacked-image-text-font-size: 24px;
+  --component-accordion-border-width: 1px;
+  --component-accordion-surface-v-padding: 4px;
+  --component-accordion-surface-h-padding: 0px;
 }
 
 [data-density="default"] {
@@ -40,6 +43,9 @@
   --component-tabs-surface-v-padding: 4px;
   --component-tabs-border-radius: 999px;
   --component-stacked-image-text-font-size: 36px;
+  --component-accordion-border-width: 1px;
+  --component-accordion-surface-v-padding: 8px;
+  --component-accordion-surface-h-padding: 0px;
 }
 
 [data-density="spacious"] {
@@ -60,4 +66,7 @@
   --component-tabs-surface-v-padding: 8px;
   --component-tabs-border-radius: 999px;
   --component-stacked-image-text-font-size: 48px;
+  --component-accordion-border-width: 1px;
+  --component-accordion-surface-v-padding: 12px;
+  --component-accordion-surface-h-padding: 0px;
 }

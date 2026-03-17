@@ -1,0 +1,111 @@
+/* Full-row container — mobile stacked, tablet+ 50/50 grid */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-helpers-v-margin-l);
+  padding: var(--layout-helpers-v-margin-xl) var(--grid-edge);
+  background-color: var(--semantic-color-surface-base);
+  width: 100%;
+}
+
+@media (min-width: 800px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--grid-gutter);
+    align-items: start;
+  }
+
+  .headingCol { grid-column: span 6; }
+  .contentCol { grid-column: span 6; }
+}
+
+/* Heading block */
+
+.headingBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+
+.heading {
+  color: var(--semantic-color-text-primary);
+}
+
+.body {
+  color: var(--semantic-color-text-secondary);
+}
+
+/* Accordion list — top/bottom border frame */
+
+.list {
+  border-bottom: var(--component-accordion-border-width) solid var(--semantic-color-border-secondary);
+}
+
+/* Each item — top border is the divider */
+
+.item {
+  border-top: var(--component-accordion-border-width) solid var(--semantic-color-border-secondary);
+}
+
+/* Face — the interactive row */
+
+.face {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: none;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  padding: var(--component-accordion-surface-v-padding) var(--component-accordion-surface-h-padding);
+  transition: padding var(--primitives-motion-duration-normal) var(--primitives-motion-easing-appear);
+}
+
+.face:hover {
+  padding-top: calc(var(--component-accordion-surface-v-padding) + var(--primitives-motion-distance-xsmall));
+  padding-bottom: calc(var(--component-accordion-surface-v-padding) + var(--primitives-motion-distance-xsmall));
+}
+
+.label {
+  color: var(--semantic-color-text-primary);
+  text-align: left;
+}
+
+/* Icon — CSS mask so color responds to theme tokens */
+
+.icon {
+  flex-shrink: 0;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-color: var(--semantic-color-icon-primary);
+  mask-image: url('/img/keyboard_arrow_down.svg');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  transition: transform var(--primitives-motion-duration-normal) var(--primitives-motion-easing-spring);
+}
+
+.item[data-open="true"] .icon {
+  transform: rotate(180deg);
+}
+
+/* Content — CSS Grid row animation: 0fr → 1fr */
+
+.content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--primitives-motion-duration-normal) var(--primitives-motion-easing-spring);
+}
+
+.contentInner {
+  overflow: hidden;
+}
+
+.item[data-open="true"] .content {
+  grid-template-rows: 1fr;
+}

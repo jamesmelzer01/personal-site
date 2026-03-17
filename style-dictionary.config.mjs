@@ -32,11 +32,31 @@ StyleDictionary.registerTransform({
   transform: (token) => `${token.$value}ms`,
 });
 
+// ---------------------------------------------------------------------------
+// Custom transform: component spacing/sizing → px
+//
+// Component tokens typed as $type: "number" (raw integers) rather than
+// $type: "dimension" (e.g. accordion padding/border-width). Appends "px"
+// so values are valid CSS. Scoped to component-* collections only, and
+// excludes duration tokens already handled by motion/duration-ms.
+// ---------------------------------------------------------------------------
+
+StyleDictionary.registerTransform({
+  name: 'dimension/px',
+  type: 'value',
+  filter: (token) =>
+    token.$type === 'number' &&
+    token.path[0]?.startsWith('component-') &&
+    !token.path.includes('duration'),
+  transform: (token) => `${token.$value}px`,
+});
+
 StyleDictionary.registerTransformGroup({
   name: 'css/extended',
   transforms: [
     ...(StyleDictionary.hooks.transformGroups['css'] ?? []),
     'motion/duration-ms',
+    'dimension/px',
   ],
 });
 
