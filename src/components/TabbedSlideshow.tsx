@@ -3,6 +3,7 @@
 import { useState, useEffect, Children, isValidElement } from "react";
 import { Tabs, Tab } from "./Tabs";
 import { ScrollReveal } from "./ScrollReveal";
+import { surfaceTokens, Surface } from "@/styles/tokens.surface";
 import styles from "./TabbedSlideshow.module.css";
 
 type Density = "compact" | "default" | "spacious";
@@ -24,6 +25,7 @@ export function SlideshowPanel({ children }: SlideshowPanelProps) {
 
 interface TabbedSlideshowProps {
   heading: string;
+  surface?: Surface;
   children: React.ReactNode;
   /**
    * Breakpoint-responsive density overrides. Evaluated in minWidth order —
@@ -35,7 +37,7 @@ interface TabbedSlideshowProps {
   densityByBreakpoint?: DensityBreakpoint[];
 }
 
-export function TabbedSlideshow({ heading, children, densityByBreakpoint }: TabbedSlideshowProps) {
+export function TabbedSlideshow({ heading, surface = "base", children, densityByBreakpoint }: TabbedSlideshowProps) {
   const panels = Children.toArray(children).filter(
     (child) => isValidElement(child) && child.type === SlideshowPanel
   ) as React.ReactElement<SlideshowPanelProps>[];
@@ -63,7 +65,7 @@ export function TabbedSlideshow({ heading, children, densityByBreakpoint }: Tabb
   }, [densityByBreakpoint]);
 
   return (
-    <div className={styles.container} {...(density ? { "data-density": density } : {})}>
+    <div className={styles.container} style={{ backgroundColor: surfaceTokens[surface] }} {...(density ? { "data-density": density } : {})}>
       <ScrollReveal>
         <div className={styles.headingBlock}>
           <h2 className={`type-display ${styles.heading}`}>{heading}</h2>

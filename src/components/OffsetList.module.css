@@ -3,7 +3,6 @@
   flex-direction: column;
   gap: var(--layout-helpers-v-margin-l);
   padding: var(--layout-helpers-v-margin-xl) var(--grid-edge);
-  background-color: var(--semantic-color-surface-low);
   width: 100%;
 }
 

@@ -5,7 +5,7 @@
   flex-direction: column;
   gap: var(--layout-helpers-v-margin-l);
   padding: var(--layout-helpers-v-margin-xl) var(--grid-edge);
-  background-color: var(--semantic-color-surface-base);
+
   width: 100%;
 }
 
@@ -62,7 +62,7 @@
   font-family: inherit;
   cursor: pointer;
   padding: var(--component-accordion-surface-v-padding) var(--component-accordion-surface-h-padding);
-  transition: padding var(--primitives-motion-duration-normal) var(--primitives-motion-easing-appear);
+  transition: padding var(--primitives-motion-duration-quick) var(--primitives-motion-easing-appear);
 }
 
 .face:hover {

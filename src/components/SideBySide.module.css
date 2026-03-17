@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  background-color: var(--semantic-color-surface-low);
   border-radius: var(--primitives-border-radius-large);
   overflow: hidden;
   width: 100%;

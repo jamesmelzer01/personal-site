@@ -1,18 +1,20 @@
 import { ScrollReveal } from "./ScrollReveal";
+import { surfaceTokens, Surface } from "@/styles/tokens.surface";
 import styles from "./OffsetList.module.css";
 
 interface OffsetListProps {
   heading: string;
   items: string[];
+  surface?: Surface;
 }
 
-export function OffsetList({ heading, items }: OffsetListProps) {
+export function OffsetList({ heading, items, surface = "low" }: OffsetListProps) {
   const columnCount = 3;
   const columns: string[][] = Array.from({ length: columnCount }, () => []);
   items.forEach((item, i) => columns[i % columnCount].push(item));
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={{ backgroundColor: surfaceTokens[surface] }}>
       <div className={styles.headingCol}>
         <ScrollReveal>
           <h2 className={`type-heading-2 ${styles.heading}`}>{heading}</h2>

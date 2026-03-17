@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { ScrollReveal } from "./ScrollReveal";
 import { breakpoints } from "@/styles/tokens.breakpoints";
+import { surfaceTokens, Surface } from "@/styles/tokens.surface";
 import styles from "./FeatureAccordion.module.css";
 
 type Density = "compact" | "default" | "spacious";
@@ -53,6 +54,7 @@ function AccordionItem({ label, isOpen, onToggle, children }: AccordionItemProps
 interface FeatureAccordionProps {
   heading: string;
   body: string;
+  surface?: Surface;
   densityByBreakpoint?: DensityBreakpoint[];
   children: React.ReactNode;
 }
@@ -60,6 +62,7 @@ interface FeatureAccordionProps {
 export function FeatureAccordion({
   heading,
   body,
+  surface = "base",
   densityByBreakpoint,
   children,
 }: FeatureAccordionProps) {
@@ -84,6 +87,7 @@ export function FeatureAccordion({
   return (
     <div
       className={styles.container}
+      style={{ backgroundColor: surfaceTokens[surface] }}
       {...(density ? { "data-density": density } : {})}
     >
       <div className={styles.headingCol}>

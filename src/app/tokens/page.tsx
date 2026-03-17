@@ -64,11 +64,10 @@ export default function TokensPage() {
       <div className={styles.pageContainer}>
 
         <TypeShowcase />
-        <ButtonShowcase />
-        <TabsShowcase />
 
         <TabbedSlideshow
           heading="Featured Work"
+          surface="base"
           densityByBreakpoint={[
             { minWidth: breakpoints.mobile, density: "default" },
             { minWidth: breakpoints.tablet, density: "spacious" },
@@ -103,6 +102,7 @@ export default function TokensPage() {
         <FeatureAccordion
           heading="What I do"
           body="Design systems strategy and hands-on craft, from token architecture to shipped components."
+          surface="base"
           densityByBreakpoint={[
             { minWidth: breakpoints.mobile, density: "default" },
             { minWidth: breakpoints.tablet, density: "spacious" },
@@ -124,6 +124,7 @@ export default function TokensPage() {
 
         <OffsetList
           heading="Clients"
+          surface="low"
           items={[
             "Amgen", "Autodesk", "Cisco", "Collibra", "Cvent", "Discovery", "Faire",
             "International Monetary Fund", "JDRF", "JLL", "Kelly Services", "Key Bank",
@@ -134,7 +135,8 @@ export default function TokensPage() {
         />
 
         <TabbedSlideshow
-          heading="Selected Photography"
+          heading="Travel"
+          surface="base"
           densityByBreakpoint={[
             { minWidth: breakpoints.mobile, density: "default" },
             { minWidth: breakpoints.tablet, density: "spacious" },
@@ -149,25 +151,28 @@ export default function TokensPage() {
               body="Sweeping views across the Urubamba valley, framed by Andean peaks and the terraced hillsides of the Inca heartland."
             />
           </SlideshowPanel>
-          <SlideshowPanel label="Panorama Two">
+          <SlideshowPanel label="Valley Approach">
             <StackedImage
               image="/img/sample-panorama-2.jpeg"
-              imageAlt="Panoramic landscape"
-              title="Panorama Two"
+              imageAlt="Panoramic landscape in Peru"
+              title="Valley Approach"
               heading="Wide open spaces"
               body="Horizon-spanning landscape captured at the edge of the golden hour, where the light flattens distance into layers of tone."
             />
           </SlideshowPanel>
-          <SlideshowPanel label="Panorama Three">
+          <SlideshowPanel label="Machu Pichu">
             <StackedImage
               image="/img/sample-panorama-3.jpeg"
-              imageAlt="Panoramic landscape"
-              title="Panorama Three"
+              imageAlt="Machu Pichu"
+              title="Machu Pichu"
               heading="Depth and scale"
               body="A study in natural geometry — converging lines and graduated atmosphere pushing the eye toward a vanishing point."
             />
           </SlideshowPanel>
         </TabbedSlideshow>
+
+        <ButtonShowcase />
+        <TabsShowcase />
 
       </div>
     </div>
