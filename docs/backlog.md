@@ -27,7 +27,30 @@ Components currently express breakpoint-responsive density intent via a `density
 ## Token Structure — Figma
 
 **Space/sizing primitive scale**
-A numeric spacing scale (`space/1` through `space/16` or similar) in the Primitives collection. Referenced by semantic layout tokens and component tokens.
+A numeric spacing scale (`space/1` through `space/16` or similar) in the Primitives collection. Referenced by semantic layout tokens and component tokens. Currently `8px`, `12px`, `16px`, and `24px` appear as hardcoded values across multiple components with no tokens to reference — this is the root cause of most gaps in the audit below.
+
+---
+
+## Component Token Gap Analysis
+
+Findings from a 2026-03-18 audit of all component CSS modules. Items grouped by priority.
+
+### Quick fixes — tokens already exist, just need wiring in code
+
+- **`font-weight: 600`** in Button, Tabs, StackedImage → swap to `--primitives-typography-weight-bold`
+- **`font-family: 'Overpass'`** in StackedImage → swap to `--primitives-typography-font-family-heading`
+- **StackedImage `line-height: 1.2`** → wire to `--primitives-typography-line-height-heading` (120%) once confirmed equivalent
+
+### Needs new tokens in Figma first
+
+- **`24px` spacing** — gap in ButtonShowcase, TabbedSlideshow, TabsShowcase, TypeShowcase. No token between `motion-distance-large` (32px) and `motion-distance-medium` (16px).
+- **`12px` spacing** — gap in ButtonShowcase button row. No token between `motion-distance-small` (8px) and `motion-distance-medium` (16px).
+- **`8px` and `16px` spacing** — used widely for layout gap/padding. `motion-distance-small/medium` exist but are semantically wrong (motion ≠ layout). Resolved by the spacing primitive scale above.
+- **`component-accordion-icon-size`** — accordion chevron `width/height: 24px` is hardcoded. Should be a density-responsive component token so it scales with compact/default/spacious.
+- **Controls bar `padding: 10px`** — odd value in page.module.css with no token. Worth standardizing to 8px or 12px once spacing scale exists.
+
+### Not actionable in CSS (known limitation)
+- **`@media (min-width: 800px)`** hardcoded in FeatureAccordion, SideBySide, OffsetList — CSS media queries cannot use custom properties. The value is correct (matches `breakpoints.tablet`). Acceptable as-is unless a SASS/PostCSS build step is introduced.
 
 ---
 
