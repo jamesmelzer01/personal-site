@@ -37,9 +37,9 @@ Findings from a 2026-03-18 audit of all component CSS modules. Items grouped by 
 
 ### Quick fixes — tokens already exist, just need wiring in code
 
-- **`font-weight: 600`** in Button, Tabs, StackedImage → swap to `--primitives-typography-weight-bold`
-- **`font-family: 'Overpass'`** in StackedImage → swap to `--primitives-typography-font-family-heading`
-- **StackedImage `line-height: 1.2`** → wire to `--primitives-typography-line-height-heading` (120%) once confirmed equivalent
+- ~~**`font-weight: 600`** in Button, Tabs, StackedImage~~ — resolved: these elements use type utility classes (`.type-ui-*`, `.type-heading-*`) which already carry weight from the token pipeline.
+- ~~**`font-family: 'Overpass'`** in StackedImage~~ — resolved: font family is inherited from the heading type class.
+- ~~**StackedImage `line-height`**~~ — resolved: line-height is now in all type styles via ADR 011.
 
 ### Needs new tokens in Figma first
 
