@@ -10,7 +10,7 @@ interface ButtonGroupProps {
 export function ButtonGroup({ children }: ButtonGroupProps) {
   const items = React.Children.toArray(children).filter(
     React.isValidElement
-  ) as React.ReactElement[];
+  ) as React.ReactElement<Record<string, unknown>>[];
   const count = items.length;
   const r = "var(--component-button-border-radius)";
 
@@ -27,9 +27,9 @@ export function ButtonGroup({ children }: ButtonGroupProps) {
 
         return React.cloneElement(child, {
           key: i,
-          style: { borderRadius, ...((child.props as Record<string, unknown>).style ?? {}) },
+          style: { borderRadius, ...((child.props.style as object) ?? {}) },
           className: [
-            (child.props as Record<string, unknown>).className,
+            child.props.className,
             i > 0 ? styles.notFirst : "",
           ].filter(Boolean).join(" "),
         });
