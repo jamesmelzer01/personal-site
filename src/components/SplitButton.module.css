@@ -1,0 +1,18 @@
+.container {
+  display: inline-flex;
+}
+
+/* All items need position: relative so z-index works on hover */
+.container > * {
+  position: relative;
+}
+
+.container > *:hover,
+.container > *:focus-within {
+  z-index: 1;
+}
+
+/* Collapse the double border between adjacent buttons */
+.notFirst {
+  margin-left: calc(-1 * var(--component-button-border-width));
+}
