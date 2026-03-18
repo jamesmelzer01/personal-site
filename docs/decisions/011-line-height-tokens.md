@@ -59,6 +59,10 @@ The Style Dictionary typography formatter (`style-dictionary.config.mjs`) uses `
 
 When a line-height primitive value is updated in Figma, the corresponding `lineHeight` values in all affected typography composite tokens must be updated manually to match. The two values must stay in sync — the primitive documents the intent, the composite implements it.
 
+## Known export artifact
+
+Figma stores line-height multipliers internally as 32-bit floats. On export via the plugin, percentage values may appear with floating-point noise: `115%` exports as `1.149999976158142` rather than `1.15`. These values should be cleaned to 2 decimal places in `figma.raw.json` after each export (find/replace is sufficient). The cleaned values are the correct source of truth — the noise is an export artifact, not an intentional value.
+
 ## Consequences
 
 - Line-heights in generated CSS are proportional (`120%`) not fixed (`px`), which is the correct behavior for web typography.
