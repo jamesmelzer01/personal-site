@@ -56,6 +56,13 @@ Findings from a 2026-03-18 audit of all component CSS modules. Items grouped by 
 
 ## Developer Experience
 
+**Component QA with Ladle (or Storybook)**
+As the component library grows, the hand-authored `/tokens` page won't catch every prop permutation. A story-based tool generates coverage automatically — every `hierarchy`, `surface`, `iconOnly`, and density combination is explorable without manually adding examples. Suggested trigger: ~8–10 components with intersecting props, or the first time a prop combination is found broken that wasn't in the `/tokens` page.
+
+Prefer **Ladle** over Storybook for this stack — it uses the same `.stories.tsx` format (Storybook-compatible) but is significantly lighter and faster to configure with Next.js. Key setup considerations: CSS custom property injection (token CSS files must be imported in Ladle's setup file), and ensuring `data-theme`/`data-density` attributes are wrappable per-story for theme/density switching.
+
+The `/tokens` page remains the live public demo; Ladle would be a local/CI QA surface, not a replacement.
+
 **Codebase orientation tour**
 A guided walkthrough of where key artifacts live: Style Dictionary config, generated token files (CSS + TS), component prop files, centralized style definitions, Figma plugin source, and the docs/decisions structure. Intended for onboarding or after a period away from the project.
 
