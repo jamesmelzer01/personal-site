@@ -33,37 +33,21 @@ A numeric spacing scale (`space/1` through `space/16` or similar) in the Primiti
 
 ## Component Token Gap Analysis
 
-Findings from a 2026-03-18 audit of all component CSS modules. Items grouped by priority.
+Findings from a 2026-03-18 audit of all component CSS modules, updated 2026-03-19. Items grouped by priority.
 
 ### Quick fixes — tokens already exist, just need wiring in code
 
-- ~~**`font-weight: 600`** in Button, Tabs, StackedImage~~ — resolved: these elements use type utility classes (`.type-ui-*`, `.type-heading-*`) which already carry weight from the token pipeline.
-- ~~**`font-family: 'Overpass'`** in StackedImage~~ — resolved: font family is inherited from the heading type class.
+- ~~**`font-family: 'Overpass'`** in StackedImage~~ — resolved: font family is inherited from the type class.
 - ~~**StackedImage `line-height`**~~ — resolved: line-height is now in all type styles via ADR 011.
+- ~~**StackedImage typography**~~ — resolved: `imageTitle` now uses `type-display` class; duplicate `font-family`, `font-size`, `font-weight`, and `line-height` removed from CSS.
+- **`font-weight: 600`** in Button, Tabs — hardcoded in component CSS. Not resolved via type classes (neither component applies one). Should become `--primitives-typography-weight-bold`, or ideally a component token (`--component-button-text-font-weight`) to keep it pipeline-traceable. Low priority — the value is correct.
+- **`gap: 16px`** in StackedImage `.container` — one remaining hardcoded spacing value. Replace with `--primitives-space-4x`.
 
 ### Needs new tokens in Figma first
 
-- **`24px` spacing** — gap in ButtonShowcase, TabbedSlideshow, TabsShowcase, TypeShowcase. No token between `motion-distance-large` (32px) and `motion-distance-medium` (16px).
-- **`12px` spacing** — gap in ButtonShowcase button row. No token between `motion-distance-small` (8px) and `motion-distance-medium` (16px).
-- **`8px` and `16px` spacing** — used widely for layout gap/padding. `motion-distance-small/medium` exist but are semantically wrong (motion ≠ layout). Resolved by the spacing primitive scale above.
+- ~~**`24px`, `12px`, `8px`, `16px` spacing**~~ — resolved: spacing primitive scale (ADR 012) introduced `primitives/space/1x`–`20x` and `breakpoints/space/1x`–`20x`. All component CSS migrated off hardcoded values and off the deprecated `layout-helpers` tokens.
 - **`component-accordion-icon-size`** — accordion chevron `width/height: 24px` is hardcoded. Should be a density-responsive component token so it scales with compact/default/spacious.
-- **Controls bar `padding: 10px`** — odd value in page.module.css with no token. Worth standardizing to 8px or 12px once spacing scale exists.
-
-#### Conversion
-
-| breakpoints/layout-helpers | breakpoints/space | 
-|:---------------------------|:------------------| 
-| n/a                        | 1x                |
-| padding-s                  | 2x                |
-| n/a                        | 3x                |
-| padding-m                  | 4x                |
-| padding-l                  | 6x                |
-| n/a                        | 8x                |
-| padding-xl                 | 10x               |
-| n/a                        | 16x               |
-| padding-xxl                | 20x               |
-
-
+- **Controls bar `padding: 10px`** — odd value in `src/app/tokens/page.module.css`. Standardize to `--primitives-space-2x` (8px) or `--primitives-space-3x` (12px).
 
 ### Not actionable in CSS (known limitation)
 - **`@media (min-width: 800px)`** hardcoded in FeatureAccordion, SideBySide, OffsetList — CSS media queries cannot use custom properties. The value is correct (matches `breakpoints.tablet`). Acceptable as-is unless a SASS/PostCSS build step is introduced.

@@ -11,10 +11,10 @@
   z-index: 100;
   background-color: var(--semantic-color-surface-base);
   border-bottom: 1px solid var(--semantic-color-border-secondary);
-  padding: 10px var(--grid-edge);
+  padding: var(--primitives-space-2x) var(--grid-edge);
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: var(--primitives-space-4x);;
   flex-wrap: wrap;
 }
 
