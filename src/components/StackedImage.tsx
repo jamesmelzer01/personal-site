@@ -14,7 +14,7 @@ export function StackedImage({ image, imageAlt = "", title, heading, body }: Sta
       <div className={styles.imageWrap}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={image} alt={imageAlt} className={styles.image} />
-        {title && <p className={styles.imageTitle}>{title}</p>}
+        {title && <p className={`type-display ${styles.imageTitle}`}>{title}</p>}
       </div>
       <div className={styles.caption}>
         <h3 className={`type-heading-2 ${styles.heading}`}>{heading}</h3>

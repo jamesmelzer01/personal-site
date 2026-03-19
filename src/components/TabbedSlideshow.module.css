@@ -1,8 +1,8 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding: var(--layout-helpers-v-margin-xl) var(--grid-edge);
+  gap: var(--primitives-space-6x);
+  padding: var(--space-v-margin-xl) var(--grid-edge);
   width: 100%;
 }
 

@@ -23,11 +23,7 @@
   top: 0;
   left: 0;
   right: 0;
-  padding: 16px var(--grid-edge);
-  font-family: 'Overpass', sans-serif;
-  font-size: 48px;
-  font-weight: 600;
-  line-height: 1.2;
+  padding: var(--space-10x) var(--grid-edge);
   color: var(--semantic-color-text-reverse);
   text-shadow: var(--primitives-shadow-text-overlay-geometry) var(--semantic-color-shadow-text-overlay);
 }
@@ -35,7 +31,7 @@
 .caption {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--primitives-space-4x);
 }
 
 .heading {

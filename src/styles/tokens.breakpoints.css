@@ -8,14 +8,18 @@
   --grid-columns: 3;
   --grid-max-width: 480px;
   --grid-narrow-max-width: 480px;
-  --layout-helpers-padding-m: 12px;
-  --layout-helpers-v-margin-m: 16px;
-  --layout-helpers-padding-l: 16px;
-  --layout-helpers-v-margin-l: 24px;
-  --layout-helpers-v-margin-xl: 40px;
-  --layout-helpers-padding-s: 8px;
-  --layout-helpers-padding-xl: 16px;
-  --layout-helpers-padding-xxl: 16px;
+  --space-4x: 12px;
+  --space-v-margin-m: 16px;
+  --space-6x: 16px;
+  --space-v-margin-l: 16px;
+  --space-v-margin-xl: 24px;
+  --space-2x: 8px;
+  --space-10x: 16px;
+  --space-20x: 24px;
+  --space-1x: 4px;
+  --space-3x: 8px;
+  --space-16x: 24px;
+  --space-8x: 16px;
 }
 
 @media (min-width: 800px) {
@@ -25,14 +29,18 @@
     --grid-columns: 6;
     --grid-max-width: 960px;
     --grid-narrow-max-width: 840px;
-    --layout-helpers-padding-m: 12px;
-    --layout-helpers-v-margin-m: 16px;
-    --layout-helpers-padding-l: 16px;
-    --layout-helpers-v-margin-l: 24px;
-    --layout-helpers-v-margin-xl: 40px;
-    --layout-helpers-padding-s: 8px;
-    --layout-helpers-padding-xl: 24px;
-    --layout-helpers-padding-xxl: 32px;
+    --space-4x: 12px;
+    --space-v-margin-m: 16px;
+    --space-6x: 16px;
+    --space-v-margin-l: 24px;
+    --space-v-margin-xl: 32px;
+    --space-2x: 8px;
+    --space-10x: 24px;
+    --space-20x: 32px;
+    --space-1x: 4px;
+    --space-3x: 8px;
+    --space-16x: 32px;
+    --space-8x: 24px;
   }
 }
 
@@ -43,13 +51,17 @@
     --grid-columns: 12;
     --grid-max-width: 1440px;
     --grid-narrow-max-width: 840px;
-    --layout-helpers-padding-m: 16px;
-    --layout-helpers-v-margin-m: 24px;
-    --layout-helpers-padding-l: 24px;
-    --layout-helpers-v-margin-l: 40px;
-    --layout-helpers-v-margin-xl: 80px;
-    --layout-helpers-padding-s: 8px;
-    --layout-helpers-padding-xl: 40px;
-    --layout-helpers-padding-xxl: 80px;
+    --space-4x: 16px;
+    --space-v-margin-m: 24px;
+    --space-6x: 24px;
+    --space-v-margin-l: 40px;
+    --space-v-margin-xl: 80px;
+    --space-2x: 8px;
+    --space-10x: 40px;
+    --space-20x: 80px;
+    --space-1x: 4px;
+    --space-3x: 12px;
+    --space-16x: 64px;
+    --space-8x: 32px;
   }
 }

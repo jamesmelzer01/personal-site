@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--space-v-margin-l);
   border-radius: var(--primitives-border-radius-large);
   overflow: hidden;
   width: 100%;
@@ -10,7 +10,10 @@
 /* Tablet and up: side by side */
 @media (min-width: 800px) {
   .container {
+    display: grid;
     flex-direction: row;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--grid-gutter);
   }
 }
 
@@ -26,22 +29,24 @@
     flex: 1;
     /* In row layout the image width is determined by flex,
        height follows naturally from aspect ratio. */
-    width: 0;
     height: auto;
+    grid-column: span 6;
   }
 }
 
 .caption {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 16px;
+  gap: var(--primitives-space-4x);
+  padding: var(--space-8x);
   justify-content: center;
 }
 
 @media (min-width: 800px) {
   .caption {
     flex: 1;
+    padding-left: 0;
+    grid-column: span 6;
   }
 }
 

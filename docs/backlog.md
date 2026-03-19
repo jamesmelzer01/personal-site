@@ -49,6 +49,22 @@ Findings from a 2026-03-18 audit of all component CSS modules. Items grouped by 
 - **`component-accordion-icon-size`** — accordion chevron `width/height: 24px` is hardcoded. Should be a density-responsive component token so it scales with compact/default/spacious.
 - **Controls bar `padding: 10px`** — odd value in page.module.css with no token. Worth standardizing to 8px or 12px once spacing scale exists.
 
+#### Conversion
+
+| breakpoints/layout-helpers | breakpoints/space | 
+|:---------------------------|:------------------| 
+| n/a                        | 1x                |
+| padding-s                  | 2x                |
+| n/a                        | 3x                |
+| padding-m                  | 4x                |
+| padding-l                  | 6x                |
+| n/a                        | 8x                |
+| padding-xl                 | 10x               |
+| n/a                        | 16x               |
+| padding-xxl                | 20x               |
+
+
+
 ### Not actionable in CSS (known limitation)
 - **`@media (min-width: 800px)`** hardcoded in FeatureAccordion, SideBySide, OffsetList — CSS media queries cannot use custom properties. The value is correct (matches `breakpoints.tablet`). Acceptable as-is unless a SASS/PostCSS build step is introduced.
 

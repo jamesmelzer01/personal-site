@@ -266,7 +266,7 @@
             "$type": "dimension"
           },
           "medium": {
-            "$value": "14px",
+            "$value": "16px",
             "$type": "dimension"
           },
           "small": {
@@ -319,48 +319,38 @@
           "$type": "string"
         }
       },
-      "line-height": {
-        "ui": {
-          "$value": 110,
-          "$type": "number"
-        },
-        "body": {
-          "$value": 20,
-          "$type": "number"
-        },
-        "heading": {
-          "$value": 120,
-          "$type": "number"
-        },
-        "body-small": {
-          "$value": 18,
-          "$type": "number"
-        },
-        "body-large": {
-          "$value": 28,
-          "$type": "number"
-        }
-      },
       "line-spacing": {
         "body": {
           "$value": "16px",
           "$type": "dimension"
         }
       },
-      "typography": {
-        "letter-spacing": {
-          "body": {
-            "$value": 0,
-            "$type": "number"
-          },
-          "heading": {
-            "$value": -1,
-            "$type": "number"
-          },
-          "display": {
-            "$value": -2,
-            "$type": "number"
-          }
+      "letter-spacing": {
+        "body": {
+          "$value": 0,
+          "$type": "number"
+        },
+        "heading": {
+          "$value": -1,
+          "$type": "number"
+        },
+        "display": {
+          "$value": -2,
+          "$type": "number"
+        }
+      },
+      "line-height": {
+        "loose": {
+          "$value": 135,
+          "$type": "number"
+        },
+        "neutral": {
+          "$value": 115,
+          "$type": "number"
+        },
+        "tight": {
+          "$value": 95,
+          "$type": "number"
         }
       }
     },
@@ -401,7 +391,7 @@
           "$type": "dimension"
         },
         "xlarge": {
-          "$value": "40px",
+          "$value": "48px",
           "$type": "dimension"
         }
       },
@@ -420,6 +410,44 @@
       "text-overlay-geometry": {
         "$value": "0 1px 4px",
         "$type": "string"
+      }
+    },
+    "space": {
+      "1x": {
+        "$value": "4px",
+        "$type": "dimension"
+      },
+      "2x": {
+        "$value": "8px",
+        "$type": "dimension"
+      },
+      "4x": {
+        "$value": "16px",
+        "$type": "dimension"
+      },
+      "3x": {
+        "$value": "12px",
+        "$type": "dimension"
+      },
+      "10x": {
+        "$value": "40px",
+        "$type": "dimension"
+      },
+      "6x": {
+        "$value": "24px",
+        "$type": "dimension"
+      },
+      "20x": {
+        "$value": "80px",
+        "$type": "dimension"
+      },
+      "8x": {
+        "$value": "32px",
+        "$type": "dimension"
+      },
+      "16x": {
+        "$value": "64px",
+        "$type": "dimension"
       }
     }
   },
@@ -1006,7 +1034,7 @@
             "$type": "dimension"
           },
           "h-padding": {
-            "$value": "13px",
+            "$value": "12px",
             "$type": "dimension"
           },
           "v-padding": {
@@ -1136,36 +1164,52 @@
         "$type": "dimension"
       }
     },
-    "layout-helpers": {
-      "padding-m": {
+    "space": {
+      "4x": {
         "$value": "12px",
         "$type": "dimension"
       },
       "v-margin-m": {
-        "$value": "16px",
+        "$value": "{breakpoints-mobile.space.6x}",
         "$type": "dimension"
       },
-      "padding-l": {
+      "6x": {
         "$value": "16px",
         "$type": "dimension"
       },
       "v-margin-l": {
-        "$value": "24px",
+        "$value": "{breakpoints-mobile.space.10x}",
         "$type": "dimension"
       },
       "v-margin-xl": {
-        "$value": "40px",
+        "$value": "{breakpoints-mobile.space.20x}",
         "$type": "dimension"
       },
-      "padding-s": {
+      "2x": {
         "$value": "8px",
         "$type": "dimension"
       },
-      "padding-xl": {
+      "10x": {
         "$value": "16px",
         "$type": "dimension"
       },
-      "padding-xxl": {
+      "20x": {
+        "$value": "24px",
+        "$type": "dimension"
+      },
+      "1x": {
+        "$value": "4px",
+        "$type": "dimension"
+      },
+      "3x": {
+        "$value": "8px",
+        "$type": "dimension"
+      },
+      "16x": {
+        "$value": "24px",
+        "$type": "dimension"
+      },
+      "8x": {
         "$value": "16px",
         "$type": "dimension"
       }
@@ -1214,37 +1258,53 @@
         "$type": "dimension"
       }
     },
-    "layout-helpers": {
-      "padding-m": {
+    "space": {
+      "4x": {
         "$value": "12px",
         "$type": "dimension"
       },
       "v-margin-m": {
-        "$value": "16px",
+        "$value": "{breakpoints-tablet.space.6x}",
         "$type": "dimension"
       },
-      "padding-l": {
+      "6x": {
         "$value": "16px",
         "$type": "dimension"
       },
       "v-margin-l": {
-        "$value": "24px",
+        "$value": "{breakpoints-tablet.space.10x}",
         "$type": "dimension"
       },
       "v-margin-xl": {
-        "$value": "40px",
+        "$value": "{breakpoints-tablet.space.20x}",
         "$type": "dimension"
       },
-      "padding-s": {
+      "2x": {
         "$value": "8px",
         "$type": "dimension"
       },
-      "padding-xl": {
+      "10x": {
         "$value": "24px",
         "$type": "dimension"
       },
-      "padding-xxl": {
+      "20x": {
         "$value": "32px",
+        "$type": "dimension"
+      },
+      "1x": {
+        "$value": "4px",
+        "$type": "dimension"
+      },
+      "3x": {
+        "$value": "8px",
+        "$type": "dimension"
+      },
+      "16x": {
+        "$value": "32px",
+        "$type": "dimension"
+      },
+      "8x": {
+        "$value": "24px",
         "$type": "dimension"
       }
     },
@@ -1292,37 +1352,53 @@
         "$type": "dimension"
       }
     },
-    "layout-helpers": {
-      "padding-m": {
+    "space": {
+      "4x": {
         "$value": "16px",
         "$type": "dimension"
       },
       "v-margin-m": {
-        "$value": "24px",
+        "$value": "{breakpoints-desktop.space.6x}",
         "$type": "dimension"
       },
-      "padding-l": {
+      "6x": {
         "$value": "24px",
         "$type": "dimension"
       },
       "v-margin-l": {
-        "$value": "40px",
+        "$value": "{breakpoints-desktop.space.10x}",
         "$type": "dimension"
       },
       "v-margin-xl": {
-        "$value": "80px",
+        "$value": "{breakpoints-desktop.space.20x}",
         "$type": "dimension"
       },
-      "padding-s": {
+      "2x": {
         "$value": "8px",
         "$type": "dimension"
       },
-      "padding-xl": {
+      "10x": {
         "$value": "40px",
         "$type": "dimension"
       },
-      "padding-xxl": {
+      "20x": {
         "$value": "80px",
+        "$type": "dimension"
+      },
+      "1x": {
+        "$value": "4px",
+        "$type": "dimension"
+      },
+      "3x": {
+        "$value": "12px",
+        "$type": "dimension"
+      },
+      "16x": {
+        "$value": "64px",
+        "$type": "dimension"
+      },
+      "8x": {
+        "$value": "32px",
         "$type": "dimension"
       }
     },
@@ -1337,7 +1413,7 @@
         "fontFamily": "Overpass",
         "fontWeight": 600,
         "fontSize": "48px",
-        "lineHeight": "normal",
+        "lineHeight": 1.149999976158142,
         "letterSpacing": "-1px"
       },
       "$type": "typography"
@@ -1347,7 +1423,7 @@
         "fontFamily": "Overpass",
         "fontWeight": 600,
         "fontSize": "36px",
-        "lineHeight": "normal",
+        "lineHeight": 1.149999976158142,
         "letterSpacing": "-1px"
       },
       "$type": "typography"
@@ -1357,8 +1433,18 @@
         "fontFamily": "Overpass",
         "fontWeight": 600,
         "fontSize": "24px",
-        "lineHeight": "normal",
+        "lineHeight": 1.149999976158142,
         "letterSpacing": "-1px"
+      },
+      "$type": "typography"
+    },
+    "eyebrow": {
+      "$value": {
+        "fontFamily": "Quicksand",
+        "fontWeight": 600,
+        "fontSize": "16px",
+        "lineHeight": 1.149999976158142,
+        "letterSpacing": "0"
       },
       "$type": "typography"
     },
@@ -1367,7 +1453,7 @@
         "fontFamily": "Quicksand",
         "fontWeight": 400,
         "fontSize": "21px",
-        "lineHeight": "28px",
+        "lineHeight": 1.350000023841858,
         "letterSpacing": "0"
       },
       "$type": "typography"
@@ -1376,8 +1462,8 @@
       "$value": {
         "fontFamily": "Quicksand",
         "fontWeight": 400,
-        "fontSize": "14px",
-        "lineHeight": "20px",
+        "fontSize": "16px",
+        "lineHeight": 1.350000023841858,
         "letterSpacing": "0"
       },
       "$type": "typography"
@@ -1387,7 +1473,7 @@
         "fontFamily": "Quicksand",
         "fontWeight": 400,
         "fontSize": "12px",
-        "lineHeight": "18px",
+        "lineHeight": 1.350000023841858,
         "letterSpacing": "0"
       },
       "$type": "typography"
@@ -1397,7 +1483,7 @@
         "fontFamily": "Quicksand",
         "fontWeight": 600,
         "fontSize": "18px",
-        "lineHeight": "normal",
+        "lineHeight": 1.149999976158142,
         "letterSpacing": "0"
       },
       "$type": "typography"
@@ -1407,7 +1493,7 @@
         "fontFamily": "Quicksand",
         "fontWeight": 600,
         "fontSize": "14px",
-        "lineHeight": "normal",
+        "lineHeight": 1.149999976158142,
         "letterSpacing": "0"
       },
       "$type": "typography"
@@ -1417,18 +1503,8 @@
         "fontFamily": "Quicksand",
         "fontWeight": 600,
         "fontSize": "12px",
-        "lineHeight": "normal",
+        "lineHeight": 1.149999976158142,
         "letterSpacing": "0"
-      },
-      "$type": "typography"
-    },
-    "display": {
-      "$value": {
-        "fontFamily": "Overpass",
-        "fontWeight": 600,
-        "fontSize": "64px",
-        "lineHeight": "normal",
-        "letterSpacing": "-2px"
       },
       "$type": "typography"
     },
@@ -1437,18 +1513,18 @@
         "fontFamily": "Overpass",
         "fontWeight": 600,
         "fontSize": "80px",
-        "lineHeight": "normal",
+        "lineHeight": 0.949999988079071,
         "letterSpacing": "-2px"
       },
       "$type": "typography"
     },
-    "eyebrow": {
+    "display": {
       "$value": {
-        "fontFamily": "Quicksand",
+        "fontFamily": "Overpass",
         "fontWeight": 600,
-        "fontSize": "14px",
-        "lineHeight": "normal",
-        "letterSpacing": "0"
+        "fontSize": "64px",
+        "lineHeight": 0.949999988079071,
+        "letterSpacing": "-2px"
       },
       "$type": "typography"
     }

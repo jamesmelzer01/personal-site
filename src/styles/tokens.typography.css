@@ -6,7 +6,7 @@
   font-family: Overpass;
   font-size: 48px;
   font-weight: 600;
-  line-height: normal;
+  line-height: 1.149999976158142;
   letter-spacing: -1px;
 }
 
@@ -14,7 +14,7 @@
   font-family: Overpass;
   font-size: 36px;
   font-weight: 600;
-  line-height: normal;
+  line-height: 1.149999976158142;
   letter-spacing: -1px;
 }
 
@@ -22,71 +22,71 @@
   font-family: Overpass;
   font-size: 24px;
   font-weight: 600;
-  line-height: normal;
+  line-height: 1.149999976158142;
   letter-spacing: -1px;
+}
+
+.type-eyebrow {
+  font-family: Quicksand;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.149999976158142;
 }
 
 .type-body-large {
   font-family: Quicksand;
   font-size: 21px;
   font-weight: 400;
-  line-height: 28px;
+  line-height: 1.350000023841858;
 }
 
 .type-body {
   font-family: Quicksand;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 1.350000023841858;
 }
 
 .type-body-small {
   font-family: Quicksand;
   font-size: 12px;
   font-weight: 400;
-  line-height: 18px;
+  line-height: 1.350000023841858;
 }
 
 .type-ui-large {
   font-family: Quicksand;
   font-size: 18px;
   font-weight: 600;
-  line-height: normal;
+  line-height: 1.149999976158142;
 }
 
 .type-ui {
   font-family: Quicksand;
   font-size: 14px;
   font-weight: 600;
-  line-height: normal;
+  line-height: 1.149999976158142;
 }
 
 .type-ui-small {
   font-family: Quicksand;
   font-size: 12px;
   font-weight: 600;
-  line-height: normal;
-}
-
-.type-display {
-  font-family: Overpass;
-  font-size: 64px;
-  font-weight: 600;
-  line-height: normal;
-  letter-spacing: -2px;
+  line-height: 1.149999976158142;
 }
 
 .type-display-l {
   font-family: Overpass;
   font-size: 80px;
   font-weight: 600;
-  line-height: normal;
+  line-height: 0.949999988079071;
   letter-spacing: -2px;
 }
 
-.type-eyebrow {
-  font-family: Quicksand;
-  font-size: 14px;
+.type-display {
+  font-family: Overpass;
+  font-size: 64px;
   font-weight: 600;
-  line-height: normal;
+  line-height: 0.949999988079071;
+  letter-spacing: -2px;
 }

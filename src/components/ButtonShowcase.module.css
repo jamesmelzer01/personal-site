@@ -1,8 +1,8 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding: var(--layout-helpers-v-margin-xl) var(--grid-edge);
+  gap: var(--space-v-margin-l);
+  padding: var(--space-v-margin-xl) var(--grid-edge);
   background-color: var(--semantic-color-surface-low);
   width: 100%;
 }
@@ -21,13 +21,13 @@
 .buttonRows {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--primitives-space-4x);
 }
 
 .buttonRow {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: var(--primitives-space-6x);
   flex-wrap: wrap;
 }

@@ -1,8 +1,8 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding: var(--layout-helpers-v-margin-xl) var(--grid-edge);
+  gap: var(--primitives-space-6x);
+  padding: var(--space-v-margin-xl) var(--grid-edge);
   background-color: var(--semantic-color-surface-base);
   width: 100%;
 }
@@ -21,16 +21,16 @@
 .content {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--primitives-space-4x);
   background: var(--semantic-color-surface-high);
-  padding: var(--layout-helpers-padding-l);
+  padding: var(--primitives-space-6x);
   border-radius: var(--primitives-border-radius-large);
 }
 
 .typeRow {
   display: flex;
   align-items: baseline;
-  gap: 16px;
+  gap: var(--primitives-space-4x);
 }
 
 .typeLabel {
