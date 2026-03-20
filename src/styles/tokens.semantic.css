@@ -19,6 +19,7 @@
   --semantic-color-border-secondary: #849eb3;
   --semantic-color-border-disabled: #aac1d3;
   --semantic-color-border-error: #cc004b;
+  --semantic-color-border-focus: #2859d7;
   --semantic-color-icon-primary: #0e1521;
   --semantic-color-icon-secondary: #16202e;
   --semantic-color-icon-disabled: #849eb3;
@@ -50,6 +51,7 @@
   --semantic-color-border-secondary: #849eb3;
   --semantic-color-border-disabled: #233142;
   --semantic-color-border-error: #ff2975;
+  --semantic-color-border-focus: #2048ac;
   --semantic-color-icon-primary: #aac1d3;
   --semantic-color-icon-secondary: #e0e8ef;
   --semantic-color-icon-disabled: #233142;
