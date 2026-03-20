@@ -1,0 +1,61 @@
+.wrap {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: var(--component-input-surface-gap);
+  height: var(--component-input-surface-height);
+  padding: var(--component-input-surface-v-padding) var(--component-input-surface-h-padding-r) var(--component-input-surface-v-padding) var(--component-input-surface-h-padding-l);
+  border: var(--component-input-border-width) solid var(--semantic-color-border-secondary);
+  border-radius: var(--component-input-border-radius);
+  background-color: var(--semantic-color-surface-low);
+}
+
+.wrap:focus-within {
+  border-color: var(--semantic-color-interaction-hover);
+}
+
+.wrap.error {
+  border-color: var(--semantic-color-border-error);
+}
+
+.wrap:has(input:disabled) {
+  border-color: var(--semantic-color-border-disabled);
+  cursor: not-allowed;
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: var(--component-input-text-font-size);
+  font-weight: var(--primitives-typography-weight-bold);
+  color: var(--semantic-color-text-primary);
+}
+
+.input::placeholder {
+  color: var(--semantic-color-text-disabled);
+  font-weight: 400;
+}
+
+.input:disabled {
+  color: var(--semantic-color-text-disabled);
+  cursor: not-allowed;
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  background-color: var(--semantic-color-icon-primary);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+:global([data-density="compact"]) .icon {
+  width: 16px;
+  height: 16px;
+}

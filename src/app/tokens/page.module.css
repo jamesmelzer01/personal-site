@@ -3,18 +3,30 @@
   background-color: var(--semantic-color-surface-ground);
 }
 
-/* Controls bar — sticky, sits outside the content container -------------- */
+/* Controls bar — inline page header -------------- */
 
 .controlsBar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  margin-top: calc(var(--component-input-surface-height) + var(--primitives-space-4x) + 1px);
   background-color: var(--semantic-color-surface-base);
   border-bottom: 1px solid var(--semantic-color-border-secondary);
   padding: var(--primitives-space-2x) var(--grid-edge);
   display: flex;
   align-items: center;
-  gap: var(--primitives-space-4x);;
+  gap: var(--primitives-space-4x);
+  flex-wrap: wrap;
+}
+
+.controlsTitle {
+  color: var(--semantic-color-text-primary);
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: var(--primitives-space-4x);
   flex-wrap: wrap;
 }
 

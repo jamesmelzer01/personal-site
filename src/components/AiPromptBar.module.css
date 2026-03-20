@@ -1,0 +1,127 @@
+/* ── Container ────────────────────────────────────────────────────── *
+ *
+ * Fixed at top. Response area starts at height 0, expanding downward
+ * and pushing the prompt bar toward the bottom of the viewport.
+ *
+ * ──────────────────────────────────────────────────────────────────── */
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--semantic-color-surface-base);
+}
+
+/* ── Response area ────────────────────────────────────────────────── */
+
+.responseArea {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.7s var(--primitives-motion-easing-spring);
+}
+
+.open .responseArea {
+  /* Full viewport minus the prompt bar: input height + top/bottom padding + border */
+  height: calc(100vh - var(--component-input-surface-height) - var(--primitives-space-4x) - 1px);
+  overflow-y: auto;
+}
+
+.responseContent {
+  max-width: var(--grid-narrow-max-width);
+  margin: 0 auto;
+  padding: var(--space-v-margin-xl) var(--grid-edge);
+  opacity: 0;
+  transition: opacity 0.3s ease 0.5s;
+}
+
+.open .responseContent {
+  opacity: 1;
+}
+
+.paragraph {
+  color: var(--semantic-color-text-primary);
+  margin-bottom: var(--primitives-space-6x);
+}
+
+.paragraph:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Thinking indicator ───────────────────────────────────────────── */
+
+.thinking {
+  display: flex;
+  gap: var(--primitives-space-1x);
+  align-items: center;
+  height: 2em;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--semantic-color-text-disabled);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+.dot:nth-child(2) { animation-delay: 0.15s; }
+.dot:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes pulse {
+  0%, 80%, 100% { opacity: 0.3; transform: scale(0.8); }
+  40%           { opacity: 1;   transform: scale(1.2); }
+}
+
+/* ── Streaming cursor ─────────────────────────────────────────────── */
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 0.85em;
+  background-color: var(--semantic-color-text-primary);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── Prompt bar ───────────────────────────────────────────────────── */
+
+.promptBar {
+  position: relative;
+  padding: var(--primitives-space-2x) var(--grid-edge);
+  border-bottom: 1px solid var(--semantic-color-border-secondary);
+  background-color: var(--semantic-color-surface-base);
+  display: flex;
+  align-items: center;
+}
+
+.open .promptBar {
+  border-top: 1px solid var(--semantic-color-border-secondary);
+  border-bottom: none;
+}
+
+/* Input + Ask button — centered, wider than the response content */
+.inputGroup {
+  display: flex;
+  gap: var(--primitives-space-2x);
+  width: 100%;
+  max-width: var(--grid-narrow-max-width);
+  margin: 0 auto;
+}
+
+/* Close button — absolute so it doesn't disturb inputGroup centering */
+.closeButton {
+  position: absolute;
+  right: var(--primitives-space-4x);
+  top: 50%;
+  transform: translateY(-50%);
+}

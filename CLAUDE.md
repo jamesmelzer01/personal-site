@@ -41,6 +41,8 @@ Figma Variables (source of truth)
 
 `scripts/fetch-tokens.mjs` is a REST API alternative to the plugin — written but blocked on Figma Enterprise plan (`file_variables:read` scope required).
 
+**Figma file access:** A personal access token and file key are available in `.env.local` (`FIGMA_TOKEN`, `FIGMA_FILE_KEY`). The variables API is Enterprise-only, but the REST API for file nodes and components works — use it to inspect component structure, resolve node IDs, and read design intent directly from Figma when needed.
+
 ### Key files
 
 - `src/app/layout.tsx` — root layout, imports `globals.css` and `tokens.css`

@@ -529,6 +529,10 @@
         "error": {
           "$value": "{semantic-light.color.alert.error.text}",
           "$type": "color"
+        },
+        "focus": {
+          "$value": "{semantic-light.color.interaction.hover}",
+          "$type": "color"
         }
       },
       "icon": {
@@ -664,6 +668,10 @@
         },
         "error": {
           "$value": "{semantic-dark.color.alert.error.text}",
+          "$type": "color"
+        },
+        "focus": {
+          "$value": "{semantic-dark.color.interaction.hover}",
           "$type": "color"
         }
       },
@@ -855,6 +863,46 @@
           "$type": "dimension"
         }
       }
+    },
+    "input": {
+      "surface": {
+        "height": {
+          "$value": "26px",
+          "$type": "dimension"
+        },
+        "gap": {
+          "$value": "4px",
+          "$type": "dimension"
+        },
+        "v-padding": {
+          "$value": "4px",
+          "$type": "dimension"
+        },
+        "h-padding-l": {
+          "$value": "8px",
+          "$type": "dimension"
+        },
+        "h-padding-r": {
+          "$value": "4px",
+          "$type": "dimension"
+        }
+      },
+      "border": {
+        "width": {
+          "$value": "1px",
+          "$type": "dimension"
+        },
+        "radius": {
+          "$value": "{primitives.border-radius.small}",
+          "$type": "dimension"
+        }
+      },
+      "text": {
+        "font-size": {
+          "$value": "{primitives.typography.size.ui.small}",
+          "$type": "dimension"
+        }
+      }
     }
   },
   "component-default": {
@@ -989,6 +1037,46 @@
           "$type": "dimension"
         }
       }
+    },
+    "input": {
+      "surface": {
+        "height": {
+          "$value": "34px",
+          "$type": "dimension"
+        },
+        "gap": {
+          "$value": "4px",
+          "$type": "dimension"
+        },
+        "v-padding": {
+          "$value": "4px",
+          "$type": "dimension"
+        },
+        "h-padding-l": {
+          "$value": "16px",
+          "$type": "dimension"
+        },
+        "h-padding-r": {
+          "$value": "8px",
+          "$type": "dimension"
+        }
+      },
+      "border": {
+        "width": {
+          "$value": "1px",
+          "$type": "dimension"
+        },
+        "radius": {
+          "$value": "{primitives.border-radius.small}",
+          "$type": "dimension"
+        }
+      },
+      "text": {
+        "font-size": {
+          "$value": "{primitives.typography.size.ui.medium}",
+          "$type": "dimension"
+        }
+      }
     }
   },
   "component-spacious": {
@@ -1120,6 +1208,46 @@
         },
         "h-padding": {
           "$value": "0px",
+          "$type": "dimension"
+        }
+      }
+    },
+    "input": {
+      "surface": {
+        "height": {
+          "$value": "50px",
+          "$type": "dimension"
+        },
+        "gap": {
+          "$value": "4px",
+          "$type": "dimension"
+        },
+        "v-padding": {
+          "$value": "4px",
+          "$type": "dimension"
+        },
+        "h-padding-l": {
+          "$value": "24px",
+          "$type": "dimension"
+        },
+        "h-padding-r": {
+          "$value": "12px",
+          "$type": "dimension"
+        }
+      },
+      "border": {
+        "width": {
+          "$value": "2px",
+          "$type": "dimension"
+        },
+        "radius": {
+          "$value": "{primitives.border-radius.infinite}",
+          "$type": "dimension"
+        }
+      },
+      "text": {
+        "font-size": {
+          "$value": "{primitives.typography.size.ui.large}",
           "$type": "dimension"
         }
       }

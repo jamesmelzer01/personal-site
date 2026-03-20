@@ -10,6 +10,8 @@ import { StackedImage } from "@/components/StackedImage";
 import { OffsetList } from "@/components/OffsetList";
 import { FeatureAccordion, AccordionPanel } from "@/components/FeatureAccordion";
 import { Button } from "@/components/Button";
+import { InputShowcase } from "@/components/InputShowcase";
+import { AiPromptBar } from "@/components/AiPromptBar";
 import { ButtonGroup } from "@/components/ButtonGroup";
 import { breakpoints } from "@/styles/tokens.breakpoints";
 import styles from "./page.module.css";
@@ -41,8 +43,12 @@ export default function TokensPage() {
   return (
     <div className={styles.page} data-theme={theme} data-density={density}>
 
-      {/* Sticky controls bar */}
+      <AiPromptBar />
+
+      {/* Controls bar */}
       <div className={styles.controlsBar}>
+        <h1 className={`type-heading-2 ${styles.controlsTitle}`}>Tokens Demo</h1>
+        <div className={styles.controls}>
         <span className={`${styles.controlLabel} type-ui-small`}>Theme</span>
         <ButtonGroup>
           {(["light", "dark"] as Theme[]).map((t) => (
@@ -66,12 +72,86 @@ export default function TokensPage() {
             />
           ))}
         </ButtonGroup>
+        </div>
       </div>
 
       {/* Page content */}
       <div className={styles.pageContainer}>
 
-        <TypeShowcase />
+        <TabbedSlideshow
+            heading="Travel"
+            surface="base"
+            densityByBreakpoint={[
+              { minWidth: breakpoints.mobile, density: "default" },
+              { minWidth: breakpoints.tablet, density: "spacious" },
+            ]}
+        >
+          <SlideshowPanel label="Sacred Valley">
+            <StackedImage
+                image="/img/sample-panorama.jpg"
+                imageAlt="Sacred Valley, Peru"
+                title="Sacred Valley"
+                heading="Sacred Valley, Peru"
+                body="Sweeping views across the Urubamba valley, framed by Andean peaks and the terraced hillsides of the Inca heartland."
+            />
+          </SlideshowPanel>
+          <SlideshowPanel label="Valley Approach">
+            <StackedImage
+                image="/img/sample-panorama-2.jpeg"
+                imageAlt="Panoramic landscape in Peru"
+                title="Valley Approach"
+                heading="Wide open spaces"
+                body="Horizon-spanning landscape captured at the edge of the golden hour, where the light flattens distance into layers of tone."
+            />
+          </SlideshowPanel>
+          <SlideshowPanel label="Machu Pichu">
+            <StackedImage
+                image="/img/sample-panorama-3.jpeg"
+                imageAlt="Machu Pichu"
+                title="Machu Pichu"
+                heading="Depth and scale"
+                body="A study in natural geometry — converging lines and graduated atmosphere pushing the eye toward a vanishing point."
+            />
+          </SlideshowPanel>
+        </TabbedSlideshow>
+
+        <FeatureAccordion
+            heading="Services"
+            body="Design systems strategy and hands-on craft, from token architecture to shipped components."
+            surface="low"
+            showCta
+            label="Get in touch"
+            href="/work"
+            densityByBreakpoint={[
+              { minWidth: breakpoints.mobile, density: "default" },
+              { minWidth: breakpoints.tablet, density: "spacious" },
+            ]}
+        >
+          <AccordionPanel label="Design Systems">
+            <p className="type-body" style={{ padding: "8px 0 16px 16px", color: "var(--semantic-color-text-primary)" }}>End-to-end design systems work — token architecture, component libraries, documentation, and adoption strategy across large product organizations.</p>
+          </AccordionPanel>
+          <AccordionPanel label="UX Strategy">
+            <p className="type-body" style={{ padding: "8px 0 16px 16px", color: "var(--semantic-color-text-primary)" }}>Framing complex product problems through research synthesis, journey mapping, and systems thinking before any design work begins.</p>
+          </AccordionPanel>
+          <AccordionPanel label="Interaction Design">
+            <p className="type-body" style={{ padding: "8px 0 16px 16px", color: "var(--semantic-color-text-primary)" }}>High-fidelity interaction design with a focus on motion, feedback, and component-level behavior validated through usability testing.</p>
+          </AccordionPanel>
+          <AccordionPanel label="Design Tooling">
+            <p className="type-body" style={{ padding: "8px 0 16px 16px", color: "var(--semantic-color-text-primary)" }}>Custom Figma plugins, token pipelines, and developer handoff infrastructure that close the gap between design intent and production output.</p>
+          </AccordionPanel>
+        </FeatureAccordion>
+
+        <OffsetList
+            heading="Clients"
+            surface="low"
+            items={[
+              "Amgen", "Autodesk", "Cisco", "Collibra", "Cvent", "Discovery", "Faire",
+              "International Monetary Fund", "JDRF", "JLL", "Kelly Services", "Key Bank",
+              "Lockheed Martin", "Macys", "Marriott", "NetApp", "Qurate (QVC/HSN)",
+              "Rally Health", "Riot Games", "Ritz Carlton", "Salesforce", "USAC",
+              "Wells Fargo", "World Bank",
+            ]}
+        />
 
         <TabbedSlideshow
           heading="Featured Work"
@@ -110,83 +190,11 @@ export default function TokensPage() {
           </SlideshowPanel>
         </TabbedSlideshow>
 
-        <FeatureAccordion
-          heading="Services"
-          body="Design systems strategy and hands-on craft, from token architecture to shipped components."
-          surface="low"
-          showCta
-          label="Get in touch"
-          href="/work"
-          densityByBreakpoint={[
-            { minWidth: breakpoints.mobile, density: "default" },
-            { minWidth: breakpoints.tablet, density: "spacious" },
-          ]}
-        >
-          <AccordionPanel label="Design Systems">
-            <p className="type-body" style={{ padding: "8px 0 16px 16px", color: "var(--semantic-color-text-primary)" }}>End-to-end design systems work — token architecture, component libraries, documentation, and adoption strategy across large product organizations.</p>
-          </AccordionPanel>
-          <AccordionPanel label="UX Strategy">
-            <p className="type-body" style={{ padding: "8px 0 16px 16px", color: "var(--semantic-color-text-primary)" }}>Framing complex product problems through research synthesis, journey mapping, and systems thinking before any design work begins.</p>
-          </AccordionPanel>
-          <AccordionPanel label="Interaction Design">
-            <p className="type-body" style={{ padding: "8px 0 16px 16px", color: "var(--semantic-color-text-primary)" }}>High-fidelity interaction design with a focus on motion, feedback, and component-level behavior validated through usability testing.</p>
-          </AccordionPanel>
-          <AccordionPanel label="Design Tooling">
-            <p className="type-body" style={{ padding: "8px 0 16px 16px", color: "var(--semantic-color-text-primary)" }}>Custom Figma plugins, token pipelines, and developer handoff infrastructure that close the gap between design intent and production output.</p>
-          </AccordionPanel>
-        </FeatureAccordion>
 
-        <OffsetList
-          heading="Clients"
-          surface="low"
-          items={[
-            "Amgen", "Autodesk", "Cisco", "Collibra", "Cvent", "Discovery", "Faire",
-            "International Monetary Fund", "JDRF", "JLL", "Kelly Services", "Key Bank",
-            "Lockheed Martin", "Macys", "Marriott", "NetApp", "Qurate (QVC/HSN)",
-            "Rally Health", "Riot Games", "Ritz Carlton", "Salesforce", "USAC",
-            "Wells Fargo", "World Bank",
-          ]}
-        />
-
-        <TabbedSlideshow
-          heading="Travel"
-          surface="base"
-          densityByBreakpoint={[
-            { minWidth: breakpoints.mobile, density: "default" },
-            { minWidth: breakpoints.tablet, density: "spacious" },
-          ]}
-        >
-          <SlideshowPanel label="Sacred Valley">
-            <StackedImage
-              image="/img/sample-panorama.jpg"
-              imageAlt="Sacred Valley, Peru"
-              title="Sacred Valley"
-              heading="Sacred Valley, Peru"
-              body="Sweeping views across the Urubamba valley, framed by Andean peaks and the terraced hillsides of the Inca heartland."
-            />
-          </SlideshowPanel>
-          <SlideshowPanel label="Valley Approach">
-            <StackedImage
-              image="/img/sample-panorama-2.jpeg"
-              imageAlt="Panoramic landscape in Peru"
-              title="Valley Approach"
-              heading="Wide open spaces"
-              body="Horizon-spanning landscape captured at the edge of the golden hour, where the light flattens distance into layers of tone."
-            />
-          </SlideshowPanel>
-          <SlideshowPanel label="Machu Pichu">
-            <StackedImage
-              image="/img/sample-panorama-3.jpeg"
-              imageAlt="Machu Pichu"
-              title="Machu Pichu"
-              heading="Depth and scale"
-              body="A study in natural geometry — converging lines and graduated atmosphere pushing the eye toward a vanishing point."
-            />
-          </SlideshowPanel>
-        </TabbedSlideshow>
-
+        <TypeShowcase />
         <ButtonShowcase />
         <TabsShowcase />
+        <InputShowcase />
 
       </div>
     </div>
