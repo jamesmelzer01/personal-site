@@ -12,6 +12,8 @@ import { FeatureAccordion, AccordionPanel } from "@/components/FeatureAccordion"
 import { Button } from "@/components/Button";
 import { InputShowcase } from "@/components/InputShowcase";
 import { AiPromptBar } from "@/components/AiPromptBar";
+import { Card } from "@/components/Card";
+import { CardBand } from "@/components/CardBand";
 import { ButtonGroup } from "@/components/ButtonGroup";
 import { breakpoints } from "@/styles/tokens.breakpoints";
 import styles from "./page.module.css";
@@ -190,6 +192,84 @@ export default function TokensPage() {
           </SlideshowPanel>
         </TabbedSlideshow>
 
+
+        <CardBand heading="Destinations" surface="low">
+          <Card
+            variant="image"
+            interactive="card-link"
+            image="/img/sample-img-square-2.jpg"
+            imageAlt="Skógafoss"
+            metadata="Iceland"
+            heading="Mossy cliffs of Skógafoss near the Eyjafjallajökull glacier"
+          />
+          <Card
+            variant="image"
+            interactive="card-link"
+            image="/img/sample-img-square-4.jpg"
+            imageAlt="Palm House Parterre"
+            metadata="England"
+            heading="Kew Royal Botanic Gardens is a gardener's paradise"
+          />
+          <Card
+            variant="image"
+            interactive="card-link"
+            image="/img/sample-img-square-3.jpg"
+            imageAlt="Caernarfon castle"
+            metadata="Wales"
+            heading="A chain of British fortifications like Caernarfon castle"
+          />
+        </CardBand>
+
+        <CardBand heading="Capabilities" surface="base">
+          <Card
+            variant="heading"
+            interactive="none"
+            heading="Token pipelines"
+            body="End-to-end infrastructure connecting Figma Variables to production CSS, with Style Dictionary transforms and GitHub Actions automation."
+          />
+          <Card
+            variant="heading"
+            interactive="none"
+            heading="Component libraries"
+            body="Accessible, density-responsive components built on semantic tokens — designed for handoff and engineered for longevity."
+          />
+          <Card
+            variant="heading"
+            interactive="none"
+            heading="Systems strategy"
+            body="Adoption roadmaps, governance models, and documentation systems that keep design and engineering aligned as products scale."
+          />
+          <Card
+            variant="heading"
+            interactive="none"
+            heading="Design tooling"
+            body="Custom Figma plugins, token validators, and linting rules that close the gap between design intent and production output."
+          />
+        </CardBand>
+
+        <CardBand heading="Guides" surface="base">
+          <Card
+            variant="text"
+            interactive="cta"
+            metadata="Buyers Guide"
+            heading="How to scope your design system refresh project"
+            ctaLabel="Learn how"
+          />
+          <Card
+            variant="text"
+            interactive="cta"
+            metadata="Datasheet"
+            heading="Token-driven component generation using AI"
+            ctaLabel="Download now"
+          />
+          <Card
+            variant="text"
+            interactive="cta"
+            metadata="Infographic"
+            heading="Information architecture in the age of AI everything"
+            ctaLabel="View"
+          />
+        </CardBand>
 
         <TypeShowcase />
         <ButtonShowcase />

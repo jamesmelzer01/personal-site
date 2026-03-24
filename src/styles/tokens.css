@@ -58,6 +58,7 @@
   --primitives-border-radius-large: 16px;
   --primitives-border-radius-infinite: 999px;
   --primitives-border-radius-small: 4px;
+  --primitives-border-radius-none: 0px;
   --primitives-typography-size-ui-small: 12px;
   --primitives-typography-size-ui-medium: 14px;
   --primitives-typography-size-ui-large: 18px;

@@ -4,7 +4,7 @@
 
 :root {
   --grid-edge: 8px;
-  --grid-gutter: 8px;
+  --grid-gutter: 32px;
   --grid-columns: 3;
   --grid-max-width: 480px;
   --grid-narrow-max-width: 480px;

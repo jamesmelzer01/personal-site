@@ -242,6 +242,10 @@
       "small": {
         "$value": "4px",
         "$type": "dimension"
+      },
+      "none": {
+        "$value": "0px",
+        "$type": "dimension"
       }
     },
     "typography": {
@@ -1272,7 +1276,7 @@
         "$type": "dimension"
       },
       "gutter": {
-        "$value": "8px",
+        "$value": "32px",
         "$type": "dimension"
       },
       "columns": {
@@ -1578,7 +1582,7 @@
       "$value": {
         "fontFamily": "Quicksand",
         "fontWeight": 600,
-        "fontSize": "16px",
+        "fontSize": "12px",
         "lineHeight": 1.149999976158142,
         "letterSpacing": "0"
       },
